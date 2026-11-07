@@ -1,5 +1,7 @@
 ---
 import Base from '~/layouts/Base.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
 import coefs from '~/data/osago_coefficients_2026.json';
 const ktCount = coefs.kt_full.length;
 const faq = [
@@ -14,16 +16,15 @@ const ld = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: f
 <script slot="head" type="application/ld+json" set:html={JSON.stringify({ "@context": "https://schema.org", "@type": "Organization", name: "ПолисПрайс", url: "https://polisprice.ru/", logo: "https://polisprice.ru/og-image.png" })} />
 
 <Base title="Калькулятор ОСАГО 2026 — расчёт по коэффициентам ЦБ" description="Калькулятор ОСАГО по официальным коэффициентам Банка России: КТ, КБМ, КВС, КМ. Таблицы тарифов по регионам, обновление 05.11.2026.">
-  <script slot="head" type="application/ld+json" set:html={JSON.stringify(ld)} />
-  <section class="pp-hero">
-    <p class="pp-hero-kicker">Коэффициенты ЦБ · проверены 05.11.2026</p>
-    <h1 class="pp-hero-title">Калькулятор ОСАГО<br />с реальными коэффициентами ЦБ</h1>
-    <p class="pp-hero-sub">Расчёт по формуле Указания Банка России № 7204-У: территория, мощность, возраст и стаж, бонус-малус. Без маркетинговых «от 4000 ₽» — только коридор тарифа, который определяет итоговую цену.</p>
-    <div class="pp-hero-cta">
-      <a href="/osago/kalkulyator/" class="pp-btn-primary">Рассчитать мой полис</a>
-      <a href="/osago/koeffitsienty/" class="pp-btn-ghost">Справочник коэффициентов</a>
-    </div>
-  </section>
+  <Hero
+    tagline="Коэффициенты ЦБ · проверены 05.11.2026"
+    title="Калькулятор ОСАГО с реальными коэффициентами ЦБ"
+    subtitle="Расчёт по формуле Указания Банка России № 7204-У: территория, мощность, возраст и стаж, бонус-малус. Без маркетинговых «от 4000 ₽» — только коридор тарифа, который определяет итоговую цену."
+    actions={[
+      { text: 'Рассчитать мой полис', href: '/osago/kalkulyator/', variant: 'primary' },
+      { text: 'Справочник коэффициентов', href: '/osago/koeffitsienty/' },
+    ]}
+  />
   <section class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
     {[
       [String(ktCount), 'тарифных зон КТ'],
@@ -51,17 +52,12 @@ const ld = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: f
     </ul>
     <p class="mt-4 text-sm text-slate-500">Источник: Указание Банка России от 09.10.2025 № 7204-У (ред. от 04.05.2026). Полные таблицы — в <a class="text-indigo-600 hover:underline" href="/osago/koeffitsienty/">справочнике коэффициентов</a>.</p>
   </section>
-  <section class="mt-12">
-    <h2 class="text-2xl font-bold">Частые вопросы</h2>
-    <div class="mt-6 space-y-3">
-      {faq.map((f) => (
-        <details class="rounded-xl border border-slate-200 bg-white p-5">
-          <summary class="cursor-pointer font-medium text-slate-900">{f.q}</summary>
-          <p class="mt-3 text-slate-600">{f.a}</p>
-        </details>
-      ))}
-    </div>
-  </section>
+  <FAQs
+    title="Частые вопросы"
+    items={faq.map((f) => ({ title: f.q, description: f.a }))}
+    columns={1}
+    schema
+  />
 <section class="mt-10">
     <h2 class="text-xl font-bold">ОСАГО по городам: популярные регионы</h2>
     <p class="mt-2 max-w-2xl text-slate-600">Территориальный коэффициент КТ различается в 192 раз по стране — от этого зависит цена полиса. Популярные города:</p>
