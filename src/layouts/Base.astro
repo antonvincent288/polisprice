@@ -2,6 +2,11 @@
 import '~/assets/styles/tailwind.css';
 import site from '~/data/site.json';
 import YandexAnalytics from '~/components/YandexAnalytics.astro';
+import CustomStyles from '~/components/CustomStyles.astro';
+import AWHeader from '~/components/widgets/Header.astro';
+import AWFooter from '~/components/widgets/Footer.astro';
+import { headerData, footerData } from '~/navigation';
+import ApplyColorMode from '~/components/common/ApplyColorMode.astro';
 const { title = 'ПолисПрайс', description = '', noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://polisprice.ru').href;
 const ogImage = new URL('/og-image.png', Astro.site ?? 'https://polisprice.ru').href;
@@ -43,6 +48,8 @@ const year = new Date().getFullYear();
     {noindex && <meta name="robots" content="noindex" />}
     {site.yandexVerification && <meta name="yandex-verification" content={site.yandexVerification} />}
     <slot name="head" />
+    <CustomStyles />
+    <ApplyColorMode />
       <YandexAnalytics />
   <style is:global>@font-face {
   font-family: 'Golos Text';
@@ -210,36 +217,13 @@ main a { text-underline-offset: 2px; }
   a { text-decoration-color: var(--pp-line); }
   </style></head>
   <body class="bg-slate-50 text-slate-800 antialiased">
-    <header class="sticky top-0 z-40 border-b border-slate-200 bg-white/90 backdrop-blur">
-      <div class="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-4 py-3">
-        <a href="/" class="order-1 text-lg font-bold text-slate-900">Полис<span class="text-indigo-600">Прайс</span></a>
-        <nav class="order-3 flex w-full gap-4 overflow-x-auto pb-1 text-sm md:order-2 md:w-auto md:gap-6">
-          {nav.map((l) => <a class="whitespace-nowrap text-slate-600 hover:text-indigo-600" href={l.href}>{l.label}</a>)}
-        </nav>
-        <a href="/osago/kalkulyator/" class="order-2 rounded-full bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700 md:order-3">Рассчитать ОСАГО</a>
-      </div>
-    </header>
+    <AWHeader {...headerData} isSticky showToggleTheme />
+
     <main class="mx-auto max-w-5xl px-4 py-10">
       <slot />
     </main>
-    <footer class="mt-12 border-t border-slate-200 bg-white">
-      <div class="mx-auto max-w-5xl px-4 py-8 text-sm text-slate-500">
-        <div class="grid gap-6 md:grid-cols-2">
-          <div>
-            <p class="font-semibold text-slate-700">ПолисПрайс</p>
-            <p class="mt-2">Расчёты выполняются по Указанию Банка России от 09.10.2025 № 7204-У (ред. от 04.05.2026). Коэффициенты проверены 05.11.2026 по официальному тексту.</p>
-          </div>
-          <div>
-            <p class="font-semibold text-slate-700">Разделы</p>
-            <ul class="mt-2 space-y-1">
-              {nav.map((l) => <li><a class="hover:text-indigo-600" href={l.href}>{l.label}</a></li>)}
-              {[["/osago/regiony/", "Все 192 региона"], ["/o-proekte/", "О проекте"], ["/politika-konfidencialnosti/", "Политика конфиденциальности"], ["/oferta/", "Оферта"], ["/kontakty/", "Контакты"]].map(([href, label]) => <li><a class="hover:text-indigo-600" href={href}>{label}</a></li>)}
-            </ul>
-          </div>
-        </div>
-        <p class="mt-6 border-t border-slate-100 pt-4">Информация справочная и не является офертой. Итоговая цена полиса определяется страховой компанией. Все коэффициенты обновляются 1 апреля ежегодно.</p>
-      </div>
-    <div class="mt-4"><a href="/guides/" class="hover:text-indigo-600">Гайды по ОСАГО</a></div></footer>
+    <AWFooter {...footerData} />
+
   <script defer src="/vendor/quicklink.umd.js"></script>
     <script>
       window.addEventListener('load', function () {
