@@ -1,0 +1,27 @@
+---
+const url = Astro.url.pathname;
+const shareUrl = 'https://polisprice.ru' + (url === '/' ? '/' : url);
+const text = encodeURIComponent('Посчитал ОСАГО по коэффициентам ЦБ — честный диапазон:');
+const links = [
+  ['Telegram', `https://t.me/share/url?url=${encodeURIComponent(shareUrl)}&text=${text}`],
+  ['VK', `https://vk.com/share.php?url=${encodeURIComponent(shareUrl)}`],
+  ['WhatsApp', `https://wa.me/?text=${text}%20${encodeURIComponent(shareUrl)}`],
+];
+---
+<div class="mt-8 flex flex-wrap items-center gap-2 text-sm">
+  <span class="text-slate-500">Поделиться расчётом:</span>
+  {links.map(([name, href]) => (
+    <a href={href} target="_blank" rel="nofollow noopener" class="rounded-lg border border-slate-200 px-3 py-1.5 hover:border-indigo-400 hover:text-indigo-600">{name}</a>
+  ))}
+  <button id="share-copy" data-url={shareUrl} class="rounded-lg border border-slate-200 px-3 py-1.5 hover:border-indigo-400 hover:text-indigo-600">Скопировать ссылку</button>
+</div>
+<script>
+  const btn = document.getElementById('share-copy');
+  btn?.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(btn.dataset.url);
+      btn.textContent = 'Скопировано!';
+      setTimeout(() => (btn.textContent = 'Скопировать ссылку'), 2000);
+    } catch {}
+  });
+</script>

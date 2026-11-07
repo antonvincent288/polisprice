@@ -1,0 +1,28 @@
+name: Scout Bot
+on:
+  schedule:
+    - cron: '30 6 * * *'
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Разведка интернета
+        run: python scripts/scout_bot.py
+      - name: Коммит находок
+        run: |
+          if [ -n "$(git status --porcelain intel/)" ]; then
+            git config user.name "scout-bot"
+            git config user.email "scout-bot@users.noreply.github.com"
+            git add intel/
+            git commit -m "intel: daily recon $(date -u +%F)"
+            git push
+          else
+            echo "новых находок нет — коммит не нужен"
+          fi

@@ -1,0 +1,44 @@
+name: Guardian Bot
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch: {}
+permissions:
+  contents: read
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Ежедневный аудит живого сайта
+        run: |
+          set -o pipefail
+          python scripts/audit.py https://antonvincent288.github.io/polisprice/ 2>&1 | tee /tmp/audit.log
+          echo "### Guardian: ежедневный аудит" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          tail -6 /tmp/audit.log >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+      - name: Живость служебных файлов
+        run: |
+          for f in robots.txt llms.txt llms-full.txt rss.xml sitemap-index.xml sitemap-0.xml; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" https://antonvincent288.github.io/polisprice/$f)
+            echo "$f → $code" >> $GITHUB_STEP_SUMMARY
+            test "$code" = "200"
+          done
+      - name: Недельная сводка (субботы)
+        run: |
+          python scripts/weekly_report.py >> $GITHUB_STEP_SUMMARY
+          if [ "$(date +%u)" = "6" ]; then
+            mkdir -p reports/weekly
+            python scripts/weekly_report.py --save "reports/weekly/$(date +%G-W%V).md"
+          fi
+      - name: Артефакт сводки
+        if: ${{ hashFiles('reports/weekly/*.md') != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: weekly-report
+          path: reports/weekly/*.md
+          retention-days: 90

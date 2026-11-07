@@ -1,0 +1,44 @@
+name: Site Audit
+
+on:
+  workflow_run:
+    workflows: ['Deploy to GitHub Pages']
+    types: [completed]
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Полный аудит живого сайта
+        env:
+          BASE_URL: https://antonvincent288.github.io/polisprice/
+        run: python scripts/audit.py "$BASE_URL"
+      - name: IndexNow — уведомить поисковики (после привязки домена)
+        if: vars.INDEXNOW_DOMAIN != ''
+        continue-on-error: true
+        run: python scripts/indexnow.py
+
+  lighthouse:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lighthouse Core Web Vitals
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          urls: |
+            https://antonvincent288.github.io/polisprice/
+            https://antonvincent288.github.io/polisprice/osago/kalkulyator/
+          uploadArtifacts: false

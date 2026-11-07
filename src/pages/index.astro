@@ -1,0 +1,109 @@
+---
+import Base from '~/layouts/Base.astro';
+import coefs from '~/data/osago_coefficients_2026.json';
+const ktCount = coefs.kt_full.length;
+const faq = [
+  { q: 'Сколько стоит ОСАГО в 2026 году?', a: 'Базовый тариф для легковых физлиц — коридор от 1 399 до 8 665 ₽ (расширен на 15% в обе стороны с 09.12.2025). Итоговая цена = базовый тариф × территориальный коэффициент × КБМ × коэффициент возраста и стажа × другие коэффициенты. Калькулятор на сайте показывает диапазон по этим коэффициентам.' },
+  { q: 'Почему у разных страховых компаний разные цены?', a: 'Внутри коридора 1 399–8 665 ₽ каждая страховая выбирает свой базовый тариф. Разница между компаниями для одного водителя может составлять тысячи рублей — поэтому полис стоит сравнивать перед покупкой.' },
+  { q: 'Что такое КБМ и как получить скидку?', a: 'КБМ — коэффициент бонус-малус, зависит от истории убытков. Класс 13 даёт коэффициент 0,46 (скидка 54%), класс «М» — 3,92. КБМ обновляется 1 апреля ежегодно и сохраняется при смене страховой.' },
+];
+const ld = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+---
+
+<script slot="head" type="application/ld+json" set:html={JSON.stringify({ "@context": "https://schema.org", "@type": "WebSite", name: "ПолисПрайс", url: "https://polisprice.ru/", inLanguage: "ru-RU" })} />
+<script slot="head" type="application/ld+json" set:html={JSON.stringify({ "@context": "https://schema.org", "@type": "Organization", name: "ПолисПрайс", url: "https://polisprice.ru/", logo: "https://polisprice.ru/og-image.png" })} />
+
+<Base title="Калькулятор ОСАГО 2026 — расчёт по коэффициентам ЦБ" description="Калькулятор ОСАГО по официальным коэффициентам Банка России: КТ, КБМ, КВС, КМ. Таблицы тарифов по регионам, обновление 05.11.2026.">
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(ld)} />
+  <section class="rounded-3xl bg-gradient-to-br from-indigo-600 to-indigo-800 p-10 text-white">
+    <p class="text-sm font-medium text-indigo-200">Коэффициенты ЦБ, проверены 05.11.2026</p>
+    <h1 class="mt-3 text-4xl font-bold leading-tight md:text-5xl">Калькулятор ОСАГО<br />с реальными коэффициентами ЦБ</h1>
+    <p class="mt-4 max-w-2xl text-indigo-100">Расчёт по формуле Указания Банка России № 7204-У: территория, мощность, возраст и стаж, бонус-малус. Без маркетинговых «от 4000 ₽» — только коридор тарифа, который определяет итоговую цену.</p>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a href="/osago/kalkulyator/" class="rounded-full bg-white px-6 py-3 font-medium text-indigo-700 hover:bg-indigo-50">Рассчитать мой полис</a>
+      <a href="/osago/koeffitsienty/" class="rounded-full border border-white/40 px-6 py-3 font-medium hover:bg-white/10">Справочник коэффициентов</a>
+    </div>
+  </section>
+  <section class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    {[
+      [String(ktCount), 'тарифных зон КТ'],
+      ['54%', 'максимальная скидка КБМ'],
+      ['1 399–8 665 ₽', 'коридор базового тарифа'],
+      ['05.11.2026', 'дата проверки коэффициентов'],
+    ].map(([v, l]) => (
+      <div class="rounded-2xl border border-slate-200 bg-white p-6 text-center">
+        <div class="text-2xl font-bold text-indigo-600">{v}</div>
+        <div class="mt-1 text-sm text-slate-500">{l}</div>
+      </div>
+    ))}
+  </section>
+  <section class="mt-12 rounded-2xl border border-slate-200 bg-white p-8">
+    <h2 class="text-2xl font-bold">Как устроена цена полиса</h2>
+    <p class="mt-3 rounded-xl bg-slate-50 p-4 font-mono text-sm">ОСАГО = ТБ × КТ × КБМ × КВС × КО × КМ × КС</p>
+    <ul class="mt-4 space-y-2 text-slate-600">
+      <li><b>ТБ</b> — базовый тариф: страховая выбирает число в коридоре 1 399–8 665 ₽ для легковых физлиц;</li>
+      <li><b>КТ</b> — коэффициент территории: в Москве 1,8, в СПб 1,64, в Казани 1,7, в Екатеринбурге 1,64;</li>
+      <li><b>КБМ</b> — бонус-малус за безаварийность: от 0,46 (класс 13) до 3,92 (класс М);</li>
+      <li><b>КВС</b> — возраст и стаж водителя: от 0,83 до 2,27;</li>
+      <li><b>КО</b> — ограничение водителей: 1,0 в ограниченном полисе, 3,16 в неограниченном;</li>
+      <li><b>КМ</b> — мощность двигателя: от 0,6 до 1,6;</li>
+      <li><b>КС</b> — сезонность: от 0,5 (3 месяца) до 1,0.</li>
+    </ul>
+    <p class="mt-4 text-sm text-slate-500">Источник: Указание Банка России от 09.10.2025 № 7204-У (ред. от 04.05.2026). Полные таблицы — в <a class="text-indigo-600 hover:underline" href="/osago/koeffitsienty/">справочнике коэффициентов</a>.</p>
+  </section>
+  <section class="mt-12">
+    <h2 class="text-2xl font-bold">Частые вопросы</h2>
+    <div class="mt-6 space-y-3">
+      {faq.map((f) => (
+        <details class="rounded-xl border border-slate-200 bg-white p-5">
+          <summary class="cursor-pointer font-medium text-slate-900">{f.q}</summary>
+          <p class="mt-3 text-slate-600">{f.a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+<section class="mt-10">
+    <h2 class="text-xl font-bold">ОСАГО по городам: популярные регионы</h2>
+    <p class="mt-2 max-w-2xl text-slate-600">Территориальный коэффициент КТ различается в 192 раз по стране — от этого зависит цена полиса. Популярные города:</p>
+    <div class="mt-4 flex flex-wrap gap-2">
+    <a href="/osago/kalkulyator/" class="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium hover:border-indigo-400 hover:text-indigo-600">Москва</a>
+    <a href="/osago-v-sankt-peterburg/" class="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium hover:border-indigo-400 hover:text-indigo-600">Санкт-Петербург</a>
+    <a href="/osago-v-kazan/" class="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium hover:border-indigo-400 hover:text-indigo-600">Казань</a>
+    <a href="/osago-v-ekaterinburg/" class="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium hover:border-indigo-400 hover:text-indigo-600">Екатеринбург</a>
+    <a href="/osago-v-samara/" class="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium hover:border-indigo-400 hover:text-indigo-600">Самара</a>
+    <a href="/osago-v-volgograd/" class="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium hover:border-indigo-400 hover:text-indigo-600">Волгоград</a>
+    <a href="/osago-v-krasnodar-novorossiysk/" class="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium hover:border-indigo-400 hover:text-indigo-600">Краснодар, Новороссийск</a>
+    <a href="/osago-v-ufa/" class="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium hover:border-indigo-400 hover:text-indigo-600">Уфа</a>
+    <a href="/osago-v-nizhniy-novgorod/" class="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium hover:border-indigo-400 hover:text-indigo-600">Нижний Новгород</a>
+    <a href="/osago-v-chelyabinsk/" class="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium hover:border-indigo-400 hover:text-indigo-600">Челябинск</a>
+    <a href="/osago-v-omsk/" class="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium hover:border-indigo-400 hover:text-indigo-600">Омск</a>
+    <a href="/osago-v-perm/" class="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium hover:border-indigo-400 hover:text-indigo-600">Пермь</a>
+    </div>
+    <p class="mt-3 text-sm"><a href="/osago/regiony/" class="text-indigo-600 hover:underline">Все 192 тарифных зон →</a> <a href="/osago/izmeneniya-2026/" class="text-indigo-600 hover:underline ml-3">Изменения 2026 →</a></p>
+  <section class="mt-8">
+    <div class="grid gap-3 sm:grid-cols-3">
+      <div class="rounded-2xl border border-slate-200 bg-white p-5 text-center">
+        <svg class="h-5 w-5 inline-block align-middle mr-1 text-indigo-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div class="text-3xl font-bold text-indigo-600">192</div>
+        <div class="mt-1 text-sm text-slate-600">тарифных зон КТ по всей России</div>
+      </div>
+      <div class="rounded-2xl border border-slate-200 bg-white p-5 text-center">
+        <svg class="h-5 w-5 inline-block align-middle mr-1 text-indigo-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+        <div class="text-3xl font-bold text-indigo-600">19</div>
+        <div class="mt-1 text-sm text-slate-600">гайдов по коэффициентам и полисам</div>
+      </div>
+      <div class="rounded-2xl border border-slate-200 bg-white p-5 text-center">
+        <svg class="h-5 w-5 inline-block align-middle mr-1 text-indigo-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></svg>
+        <div class="text-3xl font-bold text-indigo-600">1 399–8 665 ₽</div>
+        <div class="mt-1 text-sm text-slate-600">коридор базового тарифа ЦБ (Указание № 7204-У)</div>
+      </div>
+    </div>
+  </section>
+  </section>
+
+  <section class="mt-10 rounded-2xl border border-indigo-100 bg-indigo-50 p-6">
+    <h2 class="text-xl font-bold">Не хотите считать вручную?</h2>
+    <p class="mt-2 max-w-2xl text-slate-600">Квиз из 4 вопросов за минуту: покажем вилку цены по вашим данным и подскажем, где вы платите лишнее. Без регистрации.</p>
+    <a href="/quiz/" class="mt-3 inline-block rounded-xl bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-indigo-500">Пройти квиз →</a>
+  </section>
+</Base>

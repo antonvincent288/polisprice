@@ -1,0 +1,55 @@
+---
+import Base from '~/layouts/Base.astro';
+---
+
+<Base title="Изменения в ОСАГО в 2026 году: хронология тарифов и коэффициентов" description="Что изменилось в ОСАГО: базовый тариф 1 399–8 665 ₽ с 09.12.2025, редакция Указания № 7204-У от 04.05.2026, новые КТ Новосибирской области с 22.06.2026. Хронология решений ЦБ.">
+<script slot="head" type="application/ld+json" set:html={JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Главная", item: "https://polisprice.ru/" }, { "@type": "ListItem", position: 2, name: "ОСАГО", item: "https://polisprice.ru/osago/regiony/" }, { "@type": "ListItem", position: 3, name: "Изменения 2026" }] })} />
+<script slot="head" type="application/ld+json" set:html={JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+  { "@type": "Question", "name": "Насколько выросли тарифы ОСАГО с декабря 2025 года?", "acceptedAnswer": { "@type": "Answer", "text": "С 09.12.2025 действует указание ЦБ № 7204-У: базовый тариф для легковых машин физлиц расширен до диапазона 1 399–8 665 ₽ — коридор вырос на 15% в обе стороны. Итоговая цена полиса зависит от выбора компании внутри коридора." } },
+  { "@type": "Question", "name": "Что изменилось в тарифных зонах ОСАГО в 2026 году?", "acceptedAnswer": { "@type": "Answer", "text": "С 22.06.2026 указанием ЦБ № 7349-У пересмотрены территориальные коэффициенты Новосибирской области: Новосибирск — 2,34, Бердск — 1,86, Искитим — 1,74, прочие города области — 1,5. Всего в России 192 тарифные зоны." } },
+  { "@type": "Question", "name": "Изменился ли коэффициент КБМ в 2026 году?", "acceptedAnswer": { "@type": "Answer", "text": "Коэффициент бонус-малус остался в диапазоне от 0,46 (класс 13) до 3,92 (класс М) — максимальная скидка за безаварийность по-прежнему 54%." } }
+] })} />
+
+  <h1 class="text-4xl font-bold">Изменения в ОСАГО в 2026 году</h1>
+  <p class="mt-4 text-lg text-slate-600">Хронология решений Банка России по тарифам и коэффициентам ОСАГО: что уже действует, что вступило в силу в течение года и что это значит для цены полиса.</p>
+
+  <section class="mt-8 space-y-4">
+    <div class="rounded-2xl border border-slate-200 bg-white p-5">
+      <p class="text-sm font-bold text-indigo-600">09.12.2025 — действуют</p>
+      <h2 class="mt-1 text-lg font-bold">Новый коридор базовых тарифов</h2>
+      <p class="mt-2 text-sm text-slate-600">Указание ЦБ № 7204-У от 09.10.2025: базовый тариф для легковых машин физических лиц и ИП — от 1 399 до 8 665 ₽. Коридор расширен на 15% в обе стороны, поэтому разброс цен между компаниями вырос.</p>
+    </div>
+    <div class="rounded-2xl border border-slate-200 bg-white p-5">
+      <p class="text-sm font-bold text-indigo-600">19.09.2026 — действуют</p>
+      <h2 class="mt-1 text-lg font-bold">Новые справочники РСА: запчасти +8,2%</h2>
+      <p class="mt-2 text-sm text-slate-600">С 19 сентября 2026 действует новая редакция справочников РСА по запчастям, нормочасам и материалам: средние цены выросли на 8,2%. Сильнее всего подорожали запчасти Toyota, Mitsubishi и Honda (~13%), слабее — KIA, Daewoo и Chery (4,6–4,8%). Методика изменилась: при расчёте средней цены учитываются цены оригинальных деталей, а аналоги дешевле оригинала более чем на 70% — не учитываются. Выплаты при ДТП в среднем вырастут на 7–8%, а средняя премия по полисам за год растёт умереннее — на 5,7% с января по июль.</p>
+    </div>
+    <div class="rounded-2xl border border-slate-200 bg-white p-5">
+      <p class="text-sm font-bold text-indigo-600">04.05.2026 — действуют</p>
+      <h2 class="mt-1 text-lg font-bold">Редакция Указания № 7204-У</h2>
+      <p class="mt-2 text-sm text-slate-600">Действующая редакция тарифного указания — от 04.05.2026. Все коэффициенты, используемые в калькуляторе ПолисПрайс, сверены с этой редакцией.</p>
+    </div>
+    <div class="rounded-2xl border border-slate-200 bg-white p-5">
+      <p class="text-sm font-bold text-indigo-600">22.06.2026 — действуют</p>
+      <h2 class="mt-1 text-lg font-bold">Новые тарифные зоны Новосибирской области</h2>
+      <p class="mt-2 text-sm text-slate-600">Указание ЦБ № 7349-У (пресс-релиз ЦБ от 11.06.2026): Новосибирск — КТ 2,34, Бердск — 1,86, Искитим — 1,74, прочие города области — 1,5. Всего в справочнике 192 тарифные зоны по России.</p>
+    </div>
+  </section>
+
+  <section class="mt-8 rounded-2xl border border-indigo-100 bg-indigo-50 p-6">
+    <h2 class="text-lg font-bold">Что это значит для водителя</h2>
+    <p class="mt-2 text-sm text-slate-600">Расширенный коридор делает сравнение компаний важнее, чем когда-либо: одна и та же машина у разных страховщиков отличается в цене в несколько раз. Проверьте свой город в <a href="/osago/regiony/" class="font-medium text-indigo-600 hover:underline">справочнике тарифных зон</a> и посчитайте полис в <a href="/osago/kalkulyator/" class="font-medium text-indigo-600 hover:underline">калькуляторе</a>.</p>
+  </section>
+
+  <script is:inline>
+  window.addEventListener('DOMContentLoaded', function () {
+    var m = document.querySelector('meta[name="description"]');
+    if (m && document.querySelector('time[data-updated]')) return;
+    var t = document.createElement('time');
+    t.setAttribute('data-updated', '1');
+    t.textContent = 'Обновлено 07.11.2026';
+    t.className = 'mt-6 block text-sm text-slate-500';
+    document.querySelector('main').appendChild(t);
+  });
+  </script>
+</Base>

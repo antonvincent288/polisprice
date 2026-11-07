@@ -1,0 +1,38 @@
+---
+import Base from '~/layouts/Base.astro';
+import guides from '~/data/guides.json';
+
+const bc = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+  { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://polisprice.ru/' },
+  { '@type': 'ListItem', position: 2, name: 'Гайды' } ] };
+---
+<Base title="Гайды по ОСАГО 2026: формулы, коэффициенты и практические инструкции" description="Понятные гайды по ОСАГО: как считается цена, КБМ и КВС, тарифный коридор, европротокол, расторжение полиса, е-ОСАГО и сравнение с КАСКО.">
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(bc)} />
+  <h1 class="text-3xl font-bold">Гайды по ОСАГО</h1>
+  <p class="mt-3 max-w-2xl text-slate-600">Практические руководства: от формулы расчёта до европротокола. Каждый гайд проверен по Указанию ЦБ № 7204-У.</p>
+  <ul class="mt-6 grid gap-3 sm:grid-cols-2">
+    {guides.map((g) => <li class="rounded-2xl border border-slate-200 bg-white p-5"><a href={`/guides/${g.slug}/`} class="font-medium text-slate-900 hover:text-indigo-600">{g.title}</a><p class="mt-2 text-sm text-slate-600">{g.desc}</p></li>)}
+  </ul>
+
+  <section class="mt-10" id="site-search">
+    <h2 class="text-xl font-bold">Поиск по сайту</h2>
+    <link rel="stylesheet" href="/pagefind/pagefind-ui.css" slot="head" />
+    <script is:inline src="/pagefind/pagefind-ui.js" slot="head"></script>
+    <div id="search" class="mt-4"></div>
+    <script is:inline>
+      window.addEventListener('DOMContentLoaded', () => {
+        if (!window.PagefindUI) return;
+        new PagefindUI({ element: '#search', showSubResults: true, translations: {
+          placeholder: 'Поиск по сайту',
+          clear_search: 'Очистить',
+          load_more: 'Ещё результаты',
+          search_label: 'Поиск',
+          zero_results: 'Ничего не найдено: «[SEARCH_TERM]»',
+          many_results: 'Найдено [COUNT] результатов: «[SEARCH_TERM]»',
+          one_result: 'Найден [COUNT] результат: «[SEARCH_TERM]»',
+          searching: 'Ищем «[SEARCH_TERM]»…'
+        } });
+      });
+    </script>
+  </section>
+</Base>

@@ -1,0 +1,88 @@
+---
+import Base from '~/layouts/Base.astro';
+import coefs from '~/data/osago_coefficients_2026.json';
+const ktSorted = [...coefs.kt_full].sort((a, b) => a.territory.localeCompare(b.territory, 'ru'));
+const kbmItems = Object.entries(coefs.kbm.classes).reverse();
+const koItems = Object.entries(coefs.ko);
+const ksItems = Object.entries(coefs.ks);
+const kpItems = Object.entries(coefs.kp_инопл);
+const nZ = ktSorted.length;
+---
+
+<script slot="head" type="application/ld+json" set:html={JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Главная", item: "https://polisprice.ru/" }, { "@type": "ListItem", position: 2, name: "ОСАГО" }] })} />
+
+<Base title={`Коэффициенты ОСАГО 2026: КТ, КБМ, КВС, КМ, КО, КС — таблицы`} description={`Полные таблицы коэффициентов ОСАГО по Указанию ЦБ 7204-У (ред. 04.05.2026): территория (КТ, ${nZ} тарифных зон), бонус-малус (КБМ), возраст и стаж (КВС), мощность (КМ), ограничение водителей (КО), сезонность (КС).`}>
+  <h1 class="text-3xl font-bold">Справочник коэффициентов ОСАГО 2026</h1>
+  <p class="mt-2 max-w-2xl text-slate-600">Все коэффициенты — из Указания Банка России от 09.10.2025 № 7204-У (ред. от 04.05.2026 № 7349-У). Проверены по официальному тексту 05.11.2026. КБМ обновляется 1 апреля ежегодно.</p>
+  <section class="mt-8 rounded-2xl border border-slate-200 bg-white p-6">
+    <h2 class="text-xl font-bold">КМ — мощность двигателя</h2>
+    <table class="mt-4 w-full text-sm"><thead><tr class="text-left text-slate-500"><th class="py-2">Мощность, л.с.</th><th>КМ</th></tr></thead><tbody>
+      {coefs.km_auto.map(([r, v]) => <tr class="border-t border-slate-100"><td class="py-2">{r}</td><td>{v.toString().replace('.', ',')}</td></tr>)}
+    </tbody></table>
+  </section>
+  <section class="mt-8 rounded-2xl border border-slate-200 bg-white p-6">
+    <h2 class="text-xl font-bold">КВС — возраст и стаж водителя</h2>
+    <p class="mt-1 text-sm text-slate-500">Если комбинации в таблице нет, значит для этого сочетания возраста и стажа отдельного коэффициента не существует.</p>
+    <div class="mt-4 overflow-x-auto"><table class="w-full min-w-[640px] text-sm">
+      <thead><tr class="text-left text-slate-500"><th class="py-2">Возраст \ Стаж</th>{Object.keys(coefs.kvs_auto[0]).filter((k) => k !== 'age').map((e) => <th class="px-2">{e.replace('стаж ', '')}</th>)}</tr></thead>
+      <tbody>
+        {coefs.kvs_auto.map((row) => (
+          <tr class="border-t border-slate-100">
+            <td class="py-2 font-medium">{row.age}</td>
+            {Object.keys(row).filter((k) => k !== 'age').map((k) => <td class="px-2">{row[k] == null ? '—' : row[k].toString().replace('.', ',')}</td>)}
+          </tr>
+        ))}
+      </tbody>
+    </table></div>
+  </section>
+  <section class="mt-8 grid gap-8 md:grid-cols-2">
+    <div class="rounded-2xl border border-slate-200 bg-white p-6">
+      <h2 class="text-xl font-bold">КБМ — бонус-малус</h2>
+      <p class="mt-1 text-sm text-slate-500">С 01.04.2022. Максимум скидки — 54%. Класс определяется по истории убытков за год.</p>
+      <table class="mt-4 w-full text-sm"><thead><tr class="text-left text-slate-500"><th class="py-2">Класс</th><th>КБМ</th></tr></thead><tbody>
+        {kbmItems.map(([cls, v]) => <tr class="border-t border-slate-100"><td class="py-2">{cls}</td><td>{v.toString().replace('.', ',')}</td></tr>)}
+      </tbody></table>
+    </div>
+    <div class="space-y-8">
+      <div class="rounded-2xl border border-slate-200 bg-white p-6">
+        <h2 class="text-xl font-bold">КО — ограничение водителей</h2>
+        <table class="mt-4 w-full text-sm"><tbody>
+          {koItems.map(([l, v]) => <tr class="border-t border-slate-100"><td class="py-2">{l}</td><td>{v.toString().replace('.', ',')}</td></tr>)}
+        </tbody></table>
+      </div>
+      <div class="rounded-2xl border border-slate-200 bg-white p-6">
+        <h2 class="text-xl font-bold">КС — срок страхования</h2>
+        <table class="mt-4 w-full text-sm"><tbody>
+          {ksItems.map(([l, v]) => <tr class="border-t border-slate-100"><td class="py-2">{l}</td><td>{v.toString().replace('.', ',')}</td></tr>)}
+        </tbody></table>
+      </div>
+      <div class="rounded-2xl border border-slate-200 bg-white p-6">
+        <h2 class="text-xl font-bold">КП — для иностранных автомобилей</h2>
+        <table class="mt-4 w-full text-sm"><tbody>
+          {kpItems.map(([l, v]) => <tr class="border-t border-slate-100"><td class="py-2">{l}</td><td>{v.toString().replace('.', ',')}</td></tr>)}
+        </tbody></table>
+      </div>
+    </div>
+  </section>
+  <section class="mt-8 rounded-2xl border border-slate-200 bg-white p-6">
+    <h2 class="text-xl font-bold">КТ — коэффициент территории ({nZ} тарифных зон)</h2>
+    <p class="mt-1 text-sm text-slate-500">Территория определяется по месту регистрации собственника. Столбец «КТ (тракторы)» — для тракторов и самоходных машин.</p>
+    <details class="mt-4">
+      <summary class="cursor-pointer rounded-lg bg-slate-100 px-4 py-2 text-sm font-medium">Показать все {nZ} зон</summary>
+      <input id="kt-filter" type="search" placeholder="Найти свой город…" class="mt-4 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" />
+      <div class="mt-3 overflow-x-auto"><table class="w-full min-w-[420px] text-sm" id="kt-table"><thead><tr class="text-left text-slate-500"><th class="py-2">№</th><th>Населённый пункт / регион</th><th>КТ</th><th>КТ (тракторы)</th></tr></thead><tbody>
+        {ktSorted.map((r) => <tr class="border-t border-slate-100 kt-row" data-name={r.territory.toLowerCase()}><td class="py-2 text-slate-400">{r.n}</td><td>{r.territory}</td><td class="font-medium">{r.kt.toString().replace('.', ',')}</td><td>{r.kt_traktor.toString().replace('.', ',')}</td></tr>)}
+      </tbody></table></div>
+      <p class="mt-3 text-xs text-slate-500">По отдельным регионам (в т. ч. Новосибирская область) источники расходятся — перед включением в расчёт сверяйтесь с официальной таблицей на сайте Банка России.</p>
+    </details>
+  </section>
+  <script is:inline>
+    const f = document.getElementById('kt-filter');
+    f.addEventListener('input', () => {
+      const q = f.value.trim().toLowerCase();
+      document.querySelectorAll('.kt-row').forEach((tr) => {
+        tr.style.display = !q || tr.dataset.name.includes(q) ? '' : 'none';
+      });
+    });
+  </script>
+</Base>

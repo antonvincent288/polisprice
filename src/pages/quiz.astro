@@ -1,0 +1,238 @@
+---
+import Base from '~/layouts/Base.astro';
+import coefs from '~/data/osago_coefficients_2026.json';
+import site from '~/data/site.json';
+
+const kt = coefs.kt_full;
+const kts = kt.map((x) => x.kt).sort((a, b) => a - b);
+const ktMin = kts[0];
+const ktMedian = kts[Math.floor(kts.length / 2)];
+const ktm = kt.find((x) => x.territory === 'Москва').kt;
+const ktp = kt.find((x) => x.territory.indexOf('Санкт-Петербург') === 0).kt;
+const ktn = kt.find((x) => x.territory.indexOf('Новосибирск') === 0).kt;
+
+const quizData = {
+  tbMin: 1399,
+  tbMax: 8665,
+  kt: {
+    msk: 1.8, spb: 1.64, nsk: 2.34, mid: 1.16, small: 0.68,
+  },
+  kvs: [
+    { label: '18–21 год, стаж 0', v: 2.27 },
+    { label: '22–24 года, стаж 0', v: 1.88 },
+    { label: '25–34 года', v: 1.72 },
+    { label: '35–49 лет', v: 1.5 },
+    { label: '50+ лет, большой стаж', v: 0.83 },
+  ],
+  km: [["до 50", 0.6], ["51-70", 1.0], ["71-100", 1.1], ["101-120", 1.2], ["121-150", 1.4], ["свыше 150", 1.6]],
+  kbm: [
+    { label: 'Без аварий несколько лет (класс 13)', v: 0.46 },
+    { label: 'Без аварий 1–2 года (класс 10)', v: 0.63 },
+    { label: 'Была авария по вине (класс 3)', v: 1.17 },
+    { label: 'Несколько аварий (класс 0)', v: 2.94 },
+  ],
+  partnerEnabled: Boolean(site.partner && site.partner.enabled),
+};
+---
+
+<Base title="Квиз: какая цена полиса вам грозит? — ПолисПрайс" description="Пройдите квиз из 4 вопросов за минуту: честная вилка цены ОСАГО по коэффициентам Банка России и персональные советы, как платить меньше.">
+
+<section class="mx-auto max-w-3xl px-4 py-10">
+  <h1 class="text-3xl font-bold leading-tight">Какая цена полиса вам грозит?</h1>
+  <p class="mt-3 max-w-2xl text-slate-600">Четыре вопроса и одна минута: квиз считает вилку цены по официальным коэффициентам Указания № 7204-У и подсказывает, где вы платите лишнее. Без регистрации и без сбора данных.</p>
+
+  <div class="mt-6 grid gap-2 sm:grid-cols-3">
+    <div class="rounded-2xl border border-slate-200 bg-white p-4"><p class="text-sm font-bold text-indigo-600">Шаг 1</p><p class="mt-1 text-sm text-slate-600">Ответьте на 4 простых вопроса — по одному нажатию на вариант.</p></div>
+    <div class="rounded-2xl border border-slate-200 bg-white p-4"><p class="text-sm font-bold text-indigo-600">Шаг 2</p><p class="mt-1 text-sm text-slate-600">Получите честную вилку цены по коэффициентам Банка России.</p></div>
+    <div class="rounded-2xl border border-slate-200 bg-white p-4"><p class="text-sm font-bold text-indigo-600">Шаг 3</p><p class="mt-1 text-sm text-slate-600">Узнайте, где платите лишнее, и сравните цены компаний.</p></div>
+  </div>
+
+  <div class="mt-6 grid gap-2 sm:grid-cols-3">
+    <div class="rounded-2xl border border-slate-200 bg-white p-4"><p class="text-sm font-bold text-indigo-600">Шаг 1</p><p class="mt-1 text-sm text-slate-600">Ответьте на 4 простых вопроса — по одному нажатию на вариант.</p></div>
+    <div class="rounded-2xl border border-slate-200 bg-white p-4"><p class="text-sm font-bold text-indigo-600">Шаг 2</p><p class="mt-1 text-sm text-slate-600">Получите честную вилку цены по коэффициентам Банка России.</p></div>
+    <div class="rounded-2xl border border-slate-200 bg-white p-4"><p class="text-sm font-bold text-indigo-600">Шаг 3</p><p class="mt-1 text-sm text-slate-600">Узнайте, где платите лишнее, и сравните цены компаний.</p></div>
+  </div>
+
+  <div class="mt-8 rounded-2xl border border-slate-200 bg-white p-6" id="quiz-root">
+    <div class="h-1.5 w-full rounded bg-slate-100">
+      <div class="h-1.5 rounded bg-indigo-600 transition-all duration-300" id="quiz-bar" style="width: 0%"></div>
+    </div>
+
+    <div data-quiz-step data-step="0">
+      <p class="mt-6 text-sm font-medium text-indigo-600">Вопрос 1 из 4</p>
+      <h2 class="mt-1 text-xl font-bold">Где зарегистрирована машина?</h2>
+      <div class="mt-4 grid gap-2" data-quiz-options></div>
+    </div>
+    <div data-quiz-step data-step="1" class="hidden">
+      <p class="mt-6 text-sm font-medium text-indigo-600">Вопрос 2 из 4</p>
+      <h2 class="mt-1 text-xl font-bold">Возраст и стаж самого молодого водителя?</h2>
+      <div class="mt-4 grid gap-2" data-quiz-options></div>
+    </div>
+    <div data-quiz-step data-step="2" class="hidden">
+      <p class="mt-6 text-sm font-medium text-indigo-600">Вопрос 3 из 4</p>
+      <h2 class="mt-1 text-xl font-bold">Мощность двигателя?</h2>
+      <div class="mt-4 grid gap-2" data-quiz-options></div>
+    </div>
+    <div data-quiz-step data-step="3" class="hidden">
+      <p class="mt-6 text-sm font-medium text-indigo-600">Вопрос 4 из 4</p>
+      <h2 class="mt-1 text-xl font-bold">Аварии по вашей вине за последние годы?</h2>
+      <div class="mt-4 grid gap-2" data-quiz-options></div>
+    </div>
+
+    <div id="quiz-result" class="hidden">
+      <p class="mt-6 text-sm font-medium text-indigo-600">Ваш результат</p>
+      <h2 class="mt-1 text-xl font-bold">Примерная цена полиса: <span id="quiz-price" class="text-indigo-600"></span></h2>
+      <p class="mt-3 text-slate-600" id="quiz-note"></p>
+      <div class="mt-4 rounded-xl border border-slate-100 bg-slate-50 p-4">
+        <p class="text-sm font-bold">Как платить меньше</p>
+        <ul class="mt-2 text-sm text-slate-600 list-disc pl-5" id="quiz-tips"></ul>
+      </div>
+      <div class="mt-5 rounded-xl border border-slate-100 bg-slate-50 p-4">
+        <p class="text-sm font-bold"><svg class="h-4 w-4 inline-block align-middle mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>Понравился расчёт? Поделитесь — он работает без регистрации</p>
+        <div class="mt-2 flex flex-wrap gap-2" id="quiz-share">
+          <a class="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium hover:border-indigo-400 hover:text-indigo-600" data-share-tg target="_blank" rel="noopener">Отправить в Telegram</a>
+          <a class="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium hover:border-indigo-400 hover:text-indigo-600" data-share-vk target="_blank" rel="noopener">Поделиться во ВКонтакте</a>
+          <button class="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium hover:border-indigo-400 hover:text-indigo-600" data-share-copy type="button">Скопировать ссылку</button>
+        </div>
+      </div>
+      <div class="mt-5 rounded-xl border border-slate-100 bg-slate-50 p-4">
+        <p class="text-sm font-bold">Понравился расчёт? Поделитесь — он работает без регистрации</p>
+        <div class="mt-2 flex flex-wrap gap-2" id="quiz-share">
+          <a class="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium hover:border-indigo-400 hover:text-indigo-600" data-share-tg target="_blank" rel="noopener">Отправить в Telegram</a>
+          <a class="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium hover:border-indigo-400 hover:text-indigo-600" data-share-vk target="_blank" rel="noopener">Поделиться во ВКонтакте</a>
+          <button class="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium hover:border-indigo-400 hover:text-indigo-600" data-share-copy type="button">Скопировать ссылку</button>
+        </div>
+      </div>
+      <div class="mt-5 flex flex-wrap gap-2" id="quiz-cta"></div>
+      <div class="mt-5 flex flex-wrap gap-2 text-sm">
+        <a class="rounded-xl border border-slate-200 px-4 py-2 hover:border-indigo-400 hover:text-indigo-600" href="/guides/kak-snizit-tsenu-osago/">7 способов снизить цену</a>
+        <a class="rounded-xl border border-slate-200 px-4 py-2 hover:border-indigo-400 hover:text-indigo-600" href="/guides/kak-proverit-kbm/">Проверить свой КБМ</a>
+        <a class="rounded-xl border border-slate-200 px-4 py-2 hover:border-indigo-400 hover:text-indigo-600" href="/osago/kalkulyator/">Точный калькулятор</a>
+      </div>
+      <p class="mt-4 text-xs text-slate-400">Расчёт приблизительный: точную цену называет страховая по вашей записи в базе РСА. Коэффициенты — Указание № 7204-У (ред. 04.05.2026).</p>
+    </div>
+
+    <button id="quiz-back" class="mt-4 hidden text-sm text-slate-500 hover:text-slate-700">← Назад</button>
+  </div>
+</section>
+
+<script is:inline define:vars={quizData} is:raw>
+(function () {
+  var FMT = function (n) { return Math.round(n / 10) * 10 + ' ₽'; };
+  var QUESTIONS = [
+    { key: 'kt', options: [
+      { label: 'Москва', v: quizData.kt.msk },
+      { label: 'Санкт-Петербург', v: quizData.kt.spb },
+      { label: 'Новосибирск', v: quizData.kt.nsk },
+      { label: 'Другой крупный город', v: quizData.kt.mid },
+      { label: 'Небольшой город или село', v: quizData.kt.small }] },
+    { key: 'kvs', options: quizData.kvs },
+    { key: 'km', options: quizData.km.map(function (r) { return { label: r[0] + ' л.с.', v: r[1] }; }) },
+    { key: 'kbm', options: quizData.kbm },
+  ];
+  var answers = [];
+  var steps = document.querySelectorAll('[data-quiz-step]');
+  var bar = document.getElementById('quiz-bar');
+  var result = document.getElementById('quiz-result');
+  var back = document.getElementById('quiz-back');
+
+  function show(i) {
+    steps.forEach(function (s, idx) { s.classList.toggle('hidden', idx !== i); });
+    result.classList.add('hidden');
+    back.classList.toggle('hidden', i === 0);
+    bar.style.width = (i / steps.length * 100) + '%';
+  }
+
+  function finish() {
+    bar.style.width = '100%';
+    steps.forEach(function (s) { s.classList.add('hidden'); });
+    var mult = 1;
+    QUESTIONS.forEach(function (q, i) { mult *= answers[i].v; });
+    var lo = quizData.tbMin * mult, hi = quizData.tbMax * mult;
+    document.getElementById('quiz-price').textContent = 'от ' + FMT(lo) + ' до ' + FMT(hi) + ' в год';
+    document.getElementById('quiz-note').textContent = 'Диапазон получен из коридора базового тарифа 1 399–8 665 ₽ и ваших коэффициентов. Большинство компаний продают ближе к нижней половине коридора — фактическая цена будет ниже верхней границы.';
+    var tips = [];
+    var kbm = answers[3].v, km = answers[2].v, kvs = answers[1].v;
+    if (kbm > 0.46) tips.push('Каждый год без аварий поднимает класс КБМ: разрыв от 0,46 до 3,92 — почти восьмикратный. Проверьте свой класс по базе РСА.');
+    if (km >= 1.4) tips.push('Мощность выше 150 л.с. платит максимум КМ 1,6: при выборе следующей машины дефорсированная версия заметно дешевле в страховке.');
+    if (kvs >= 1.72) tips.push('Молодой водитель — самый дорогой личный фактор: в ограниченном полисе цена считается по худшему водителю.');
+    if (!tips.length) tips.push('Ваши личные коэффициенты уже почти минимальные: осталась только дисциплина безаварийной езды и сравнение компаний перед продлением.');
+    var ul = document.getElementById('quiz-tips');
+    ul.innerHTML = '';
+    tips.forEach(function (t) { var li = document.createElement('li'); li.textContent = t; ul.appendChild(li); });
+    var cta = document.getElementById('quiz-cta');
+    cta.innerHTML = '';
+    if (quizData.partnerEnabled) {
+      var b = document.createElement('a');
+      b.href = quizData.partnerUrl || '#';
+      b.className = 'rounded-xl bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-indigo-500';
+      b.rel = 'nofollow';
+      b.textContent = 'Сравнить цены';
+      cta.appendChild(b);
+      var n = document.createElement('span');
+      n.className = 'text-xs text-slate-400 self-center';
+      n.textContent = 'Реклама';
+      cta.appendChild(n);
+    } else {
+      var l = document.createElement('a');
+      l.href = '/osago/kalkulyator/';
+      l.className = 'rounded-xl bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-indigo-500';
+      l.textContent = 'Точный расчёт в калькуляторе';
+      cta.appendChild(l);
+    }
+    result.classList.remove('hidden');
+  }
+
+  function renderOptions(i) {
+    var box = steps[i].querySelector('[data-quiz-options]');
+    box.innerHTML = '';
+    QUESTIONS[i].options.forEach(function (o) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-left text-sm font-medium hover:border-indigo-400 hover:text-indigo-600';
+      b.textContent = o.label;
+      b.addEventListener('click', function () {
+        answers[i] = o;
+        if (i + 1 < steps.length) show(i + 1); else finish();
+      });
+      box.appendChild(b);
+    });
+  }
+
+  back.addEventListener('click', function () {
+    var cur = 0;
+    steps.forEach(function (s, idx) { if (!s.classList.contains('hidden')) cur = idx; });
+    answers.length = Math.max(0, cur - 1 + 1) > answers.length ? answers.length : cur;
+    answers = answers.slice(0, cur);
+    show(Math.max(0, cur - 1));
+  });
+
+  var url = encodeURIComponent(window.location.href);
+  var text = encodeURIComponent('Посчитал цену полиса за минуту по коэффициентам ЦБ. Пройдите квиз: ')
+  var tg = document.querySelector('[data-share-tg]');
+  var vk = document.querySelector('[data-share-vk]');
+  if (tg) tg.href = 'https://t.me/share/url?url=' + url + '&text=' + text;
+  if (vk) vk.href = 'https://vk.com/share.php?url=' + url + '&title=' + text;
+  var cp = document.querySelector('[data-share-copy]');
+  if (cp) cp.addEventListener('click', function () {{
+    if (navigator.clipboard) navigator.clipboard.writeText(window.location.href);
+    var t = cp.textContent; cp.textContent = 'Ссылка скопирована ✓';
+    setTimeout(function () {{ cp.textContent = t; }}, 1800);
+  }});
+  var url = encodeURIComponent(window.location.href);
+  var text = encodeURIComponent('Посчитал цену полиса за минуту по коэффициентам ЦБ. Пройдите квиз: ')
+  var tg = document.querySelector('[data-share-tg]');
+  var vk = document.querySelector('[data-share-vk]');
+  if (tg) tg.href = 'https://t.me/share/url?url=' + url + '&text=' + text;
+  if (vk) vk.href = 'https://vk.com/share.php?url=' + url + '&title=' + text;
+  var cp = document.querySelector('[data-share-copy]');
+  if (cp) cp.addEventListener('click', function () {{
+    if (navigator.clipboard) navigator.clipboard.writeText(window.location.href);
+    var t = cp.textContent; cp.textContent = 'Ссылка скопирована ✓';
+    setTimeout(function () {{ cp.textContent = t; }}, 1800);
+  }});
+  for (var i = 0; i < steps.length; i++) renderOptions(i);
+  show(0);
+})();
+</script>
+</Base>

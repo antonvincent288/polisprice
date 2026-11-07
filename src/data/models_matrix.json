@@ -1,0 +1,768 @@
+{
+ "models": [
+  {
+   "name": "Lada Granta",
+   "slug": "lada-granta"
+  },
+  {
+   "name": "Lada Vesta",
+   "slug": "lada-vesta"
+  },
+  {
+   "name": "Kia Rio",
+   "slug": "kia-rio"
+  },
+  {
+   "name": "Hyundai Solaris",
+   "slug": "hyundai-solaris"
+  },
+  {
+   "name": "Toyota Camry",
+   "slug": "toyota-camry"
+  },
+  {
+   "name": "Toyota RAV4",
+   "slug": "toyota-rav4"
+  },
+  {
+   "name": "Lada Largus",
+   "slug": "lada-largus"
+  },
+  {
+   "name": "Hyundai Creta",
+   "slug": "hyundai-creta"
+  },
+  {
+   "name": "Kia Sportage",
+   "slug": "kia-sportage"
+  },
+  {
+   "name": "Toyota Corolla",
+   "slug": "toyota-corolla"
+  },
+  {
+   "name": "Haval Jolion",
+   "slug": "haval-jolion"
+  },
+  {
+   "name": "Volkswagen Polo",
+   "slug": "volkswagen-polo"
+  },
+  {
+   "name": "Volkswagen Tiguan",
+   "slug": "volkswagen-tiguan"
+  },
+  {
+   "name": "Skoda Octavia",
+   "slug": "skoda-octavia"
+  },
+  {
+   "name": "Renault Logan",
+   "slug": "renault-logan"
+  },
+  {
+   "name": "Nissan Qashqai",
+   "slug": "nissan-qashqai"
+  },
+  {
+   "name": "Mazda CX-5",
+   "slug": "mazda-cx-5"
+  },
+  {
+   "name": "Chery Tiggo 7 Pro Max",
+   "slug": "chery-tiggo-7-pro-max"
+  },
+  {
+   "name": "Geely Coolray",
+   "slug": "geely-coolray"
+  },
+  {
+   "name": "Hyundai Tucson",
+   "slug": "hyundai-tucson"
+  },
+  {
+   "name": "Skoda Rapid",
+   "slug": "skoda-rapid"
+  },
+  {
+   "name": "Renault Duster",
+   "slug": "renault-duster"
+  },
+  {
+   "name": "Chery Tiggo 4 Pro",
+   "slug": "chery-tiggo-4-pro"
+  },
+  {
+   "name": "Kia Ceed",
+   "slug": "kia-ceed"
+  },
+  {
+   "name": "Lada Niva Legend",
+   "slug": "lada-niva-legend"
+  },
+  {
+   "name": "Kia K5",
+   "slug": "kia-k5"
+  },
+  {
+   "name": "Nissan X-Trail",
+   "slug": "nissan-x-trail"
+  },
+  {
+   "name": "Haval F7",
+   "slug": "haval-f7"
+  },
+  {
+   "name": "BMW X5",
+   "slug": "bmw-x5"
+  },
+  {
+   "name": "Skoda Kodiaq",
+   "slug": "skoda-kodiaq"
+  },
+  {
+   "name": "Mazda 6",
+   "slug": "mazda-6"
+  },
+  {
+   "name": "Belgee X50",
+   "slug": "belgee-x50"
+  },
+  {
+   "name": "Omoda C5",
+   "slug": "omoda-c5"
+  },
+  {
+   "name": "Changan CS35 Plus",
+   "slug": "changan-cs35-plus"
+  },
+  {
+   "name": "Ford Focus",
+   "slug": "ford-focus"
+  },
+  {
+   "name": "UAZ Patriot",
+   "slug": "uaz-patriot"
+  },
+  {
+   "name": "Volkswagen Golf",
+   "slug": "volkswagen-golf"
+  },
+  {
+   "name": "Mercedes-Benz GLC",
+   "slug": "mercedes-glc"
+  },
+  {
+   "name": "Lada Niva Travel",
+   "slug": "lada-niva-travel"
+  },
+  {
+   "name": "BAIC X35",
+   "slug": "baic-x35"
+  },
+  {
+   "name": "GAZelle Business",
+   "slug": "gazelle-business"
+  },
+  {
+   "name": "Audi Q7",
+   "slug": "audi-q7"
+  },
+  {
+   "name": "Lexus RX",
+   "slug": "lexus-rx"
+  },
+  {
+   "name": "Chevrolet Niva",
+   "slug": "chevrolet-niva"
+  },
+  {
+   "name": "JAC JS4",
+   "slug": "jac-js4"
+  },
+  {
+   "name": "Volvo XC90",
+   "slug": "volvo-xc90"
+  },
+  {
+   "name": "Porsche Cayenne",
+   "slug": "porsche-cayenne"
+  },
+  {
+   "name": "Jeep Grand Cherokee",
+   "slug": "jeep-grand-cherokee"
+  },
+  {
+   "name": "Sollers Atlant",
+   "slug": "sollers-atlant"
+  },
+  {
+   "name": "Lifan X60",
+   "slug": "lifan-x60"
+  }
+ ],
+ "regions": [
+  {
+   "name": "Москва",
+   "slug": "moskva",
+   "zone": "Москва",
+   "kt": 1.8,
+   "direct": true,
+   "geo_path": "osago/moscow",
+   "alts": [
+    {
+     "territory": "Московская область",
+     "kt": 1.56,
+     "path": "/osago-v-moskovskaya-oblast/"
+    }
+   ]
+  },
+  {
+   "name": "Московская область",
+   "slug": "moskovskaya-oblast",
+   "zone": "Московская область",
+   "kt": 1.56,
+   "direct": true,
+   "geo_path": "osago-v-moskovskaya-oblast",
+   "alts": [
+    {
+     "territory": "Москва",
+     "kt": 1.8,
+     "path": "/osago/moscow/"
+    }
+   ]
+  },
+  {
+   "name": "Санкт-Петербург",
+   "slug": "sankt-peterburg",
+   "zone": "Санкт-Петербург",
+   "kt": 1.64,
+   "direct": true,
+   "geo_path": "osago-v-sankt-peterburg",
+   "alts": [
+    {
+     "territory": "Ленинградская область",
+     "kt": 1.24,
+     "path": "/osago-v-leningradskaya-oblast/"
+    }
+   ]
+  },
+  {
+   "name": "Ленинградская область",
+   "slug": "leningradskaya-oblast",
+   "zone": "Ленинградская область",
+   "kt": 1.24,
+   "direct": true,
+   "geo_path": "osago-v-leningradskaya-oblast",
+   "alts": [
+    {
+     "territory": "Санкт-Петербург",
+     "kt": 1.64,
+     "path": "/osago-v-sankt-peterburg/"
+    }
+   ]
+  },
+  {
+   "name": "Свердловская область",
+   "slug": "sverdlovskaya-oblast",
+   "zone": "Екатеринбург",
+   "kt": 1.64,
+   "direct": false,
+   "geo_path": "osago-v-ekaterinburg",
+   "alts": [
+    {
+     "territory": "Асбест, Ревда",
+     "kt": 1.08,
+     "path": "/osago-v-asbest-revda/"
+    },
+    {
+     "territory": "Березовский, Верхняя Пышма, Первоуральск",
+     "kt": 1.24,
+     "path": "/osago-v-berezovskiy-verkhnyaya-pyshma-pervouralsk/"
+    }
+   ]
+  },
+  {
+   "name": "Краснодарский край",
+   "slug": "krasnodarskiy-kray",
+   "zone": "Краснодар, Новороссийск",
+   "kt": 1.56,
+   "direct": false,
+   "geo_path": "osago-v-krasnodar-novorossiysk",
+   "alts": [
+    {
+     "territory": "Анапа, Геленджик",
+     "kt": 1.24,
+     "path": "/osago-v-anapa-gelendzhik/"
+    },
+    {
+     "territory": "Армавир, Сочи, Туапсе",
+     "kt": 1.16,
+     "path": "/osago-v-armavir-sochi-tuapse/"
+    }
+   ]
+  },
+  {
+   "name": "Татарстан",
+   "slug": "tatarstan",
+   "zone": "Казань",
+   "kt": 1.7,
+   "direct": false,
+   "geo_path": "osago-v-kazan",
+   "alts": [
+    {
+     "territory": "Набережные Челны",
+     "kt": 1.56,
+     "path": "/osago-v-naberezhnye-chelny/"
+    },
+    {
+     "territory": "Альметьевск, Зеленодольск, Нижнекамск",
+     "kt": 1.24,
+     "path": "/osago-v-almetevsk-zelenodolsk-nizhnekamsk/"
+    },
+    {
+     "territory": "Бугульма, Лениногорск, Чистополь",
+     "kt": 1.0,
+     "path": "/osago-v-bugulma-leninogorsk-chistopol/"
+    },
+    {
+     "territory": "Елабуга",
+     "kt": 1.16,
+     "path": "/osago-v-elabuga/"
+    }
+   ]
+  },
+  {
+   "name": "Ростовская область",
+   "slug": "rostovskaya-oblast",
+   "zone": "Ростов-на-Дону",
+   "kt": 1.56,
+   "direct": false,
+   "geo_path": "osago-v-rostov-na-donu",
+   "alts": [
+    {
+     "territory": "Азов",
+     "kt": 1.16,
+     "path": "/osago-v-azov/"
+    },
+    {
+     "territory": "Батайск",
+     "kt": 1.24,
+     "path": "/osago-v-bataysk/"
+    },
+    {
+     "territory": "Шахты",
+     "kt": 1.08,
+     "path": "/osago-v-shakhty/"
+    }
+   ]
+  },
+  {
+   "name": "Новосибирская область",
+   "slug": "novosibirskaya-oblast",
+   "zone": "Новосибирск",
+   "kt": 2.34,
+   "direct": false,
+   "geo_path": "osago-v-novosibirsk",
+   "alts": [
+    {
+     "territory": "Бердск",
+     "kt": 1.86,
+     "path": "/osago-v-berdsk/"
+    },
+    {
+     "territory": "Искитим",
+     "kt": 1.74,
+     "path": "/osago-v-iskitim/"
+    },
+    {
+     "territory": "Куйбышев",
+     "kt": 2.0,
+     "path": "/osago-v-kuybyshev/"
+    }
+   ]
+  },
+  {
+   "name": "Челябинская область",
+   "slug": "chelyabinskaya-oblast",
+   "zone": "Челябинск",
+   "kt": 1.77,
+   "direct": false,
+   "geo_path": "osago-v-chelyabinsk",
+   "alts": [
+    {
+     "territory": "Магнитогорск",
+     "kt": 1.64,
+     "path": "/osago-v-magnitogorsk/"
+    },
+    {
+     "territory": "Златоуст, Миасс",
+     "kt": 1.32,
+     "path": "/osago-v-zlatoust-miass/"
+    },
+    {
+     "territory": "Копейск",
+     "kt": 1.48,
+     "path": "/osago-v-kopeysk/"
+    },
+    {
+     "territory": "Сатка, Чебаркуль",
+     "kt": 1.16,
+     "path": "/osago-v-satka-chebarkul/"
+    }
+   ]
+  },
+  {
+   "name": "Башкортостан",
+   "slug": "bashkortostan",
+   "zone": "Уфа",
+   "kt": 1.56,
+   "direct": false,
+   "geo_path": "osago-v-ufa",
+   "alts": [
+    {
+     "territory": "Стерлитамак, Туймазы",
+     "kt": 1.24,
+     "path": "/osago-v-sterlitamak-tuymazy/"
+    },
+    {
+     "territory": "Ишимбай, Кумертау, Салават",
+     "kt": 1.08,
+     "path": "/osago-v-ishimbay-kumertau-salavat/"
+    },
+    {
+     "territory": "Благовещенск, Октябрьский",
+     "kt": 1.16,
+     "path": "/osago-v-blagoveshchensk-oktyabrskiy/"
+    }
+   ]
+  },
+  {
+   "name": "Самарская область",
+   "slug": "samarskaya-oblast",
+   "zone": "Самара",
+   "kt": 1.48,
+   "direct": false,
+   "geo_path": "osago-v-samara",
+   "alts": [
+    {
+     "territory": "Новокуйбышевск, Сызрань",
+     "kt": 1.08,
+     "path": "/osago-v-novokuybyshevsk-syzran/"
+    },
+    {
+     "territory": "Тольятти",
+     "kt": 1.35,
+     "path": "/osago-v-tolyatti/"
+    }
+   ]
+  },
+  {
+   "name": "Нижегородская область",
+   "slug": "nizhegorodskaya-oblast",
+   "zone": "Нижний Новгород",
+   "kt": 1.56,
+   "direct": false,
+   "geo_path": "osago-v-nizhniy-novgorod",
+   "alts": [
+    {
+     "territory": "Балахна, Бор, Дзержинск",
+     "kt": 1.24,
+     "path": "/osago-v-balakhna-bor-dzerzhinsk/"
+    },
+    {
+     "territory": "Арзамас, Выкса, Саров",
+     "kt": 1.08,
+     "path": "/osago-v-arzamas-vyksa-sarov/"
+    },
+    {
+     "territory": "Кстово",
+     "kt": 1.16,
+     "path": "/osago-v-kstovo/"
+    }
+   ]
+  },
+  {
+   "name": "Пермский край",
+   "slug": "permskiy-kray",
+   "zone": "Пермь",
+   "kt": 1.6,
+   "direct": false,
+   "geo_path": "osago-v-perm",
+   "alts": [
+    {
+     "territory": "Березники",
+     "kt": 1.24,
+     "path": "/osago-v-berezniki/"
+    },
+    {
+     "territory": "Соликамск",
+     "kt": 1.16,
+     "path": "/osago-v-solikamsk/"
+    },
+    {
+     "territory": "Краснокамск",
+     "kt": 1.14,
+     "path": "/osago-v-krasnokamsk/"
+    },
+    {
+     "territory": "Лысьва, Чайковский",
+     "kt": 1.0,
+     "path": "/osago-v-lysva-chaykovskiy/"
+    }
+   ]
+  },
+  {
+   "name": "Красноярский край",
+   "slug": "krasnoyarskiy-kray",
+   "zone": "Красноярск",
+   "kt": 1.56,
+   "direct": false,
+   "geo_path": "osago-v-krasnoyarsk",
+   "alts": [
+    {
+     "territory": "Канск, Лесосибирск, Минусинск, Назарово",
+     "kt": 1.0,
+     "path": "/osago-v-kansk-lesosibirsk-minusinsk-nazarovo/"
+    },
+    {
+     "territory": "Железногорск, Норильск",
+     "kt": 1.24,
+     "path": "/osago-v-zheleznogorsk-norilsk/"
+    }
+   ]
+  },
+  {
+   "name": "Иркутская область",
+   "slug": "irkutskaya-oblast",
+   "zone": "Иркутск",
+   "kt": 1.49,
+   "direct": false,
+   "geo_path": "osago-v-irkutsk",
+   "alts": [
+    {
+     "territory": "Ангарск",
+     "kt": 1.16,
+     "path": "/osago-v-angarsk/"
+    },
+    {
+     "territory": "Братск, Тулун, Усть-Илимск, Усть-Кут, Черемхово",
+     "kt": 1.0,
+     "path": "/osago-v-bratsk-tulun-ust-ilimsk-ust-kut-cheremkhovo/"
+    },
+    {
+     "territory": "Усолье-Сибирское",
+     "kt": 1.08,
+     "path": "/osago-v-usole-sibirskoe/"
+    },
+    {
+     "territory": "Шелехов",
+     "kt": 1.24,
+     "path": "/osago-v-shelekhov/"
+    }
+   ]
+  },
+  {
+   "name": "ХМАО",
+   "slug": "khmao",
+   "zone": "Ханты-Мансийск",
+   "kt": 1.3,
+   "direct": false,
+   "geo_path": "osago-v-khanty-mansiysk",
+   "alts": [
+    {
+     "territory": "Сургут",
+     "kt": 1.7,
+     "path": "/osago-v-surgut/"
+    },
+    {
+     "territory": "Нефтеюганск, Нягань",
+     "kt": 1.24,
+     "path": "/osago-v-nefteyugansk-nyagan/"
+    },
+    {
+     "territory": "Когалым",
+     "kt": 1.0,
+     "path": "/osago-v-kogalym/"
+    },
+    {
+     "territory": "Нижневартовск",
+     "kt": 1.64,
+     "path": "/osago-v-nizhnevartovsk/"
+    }
+   ]
+  },
+  {
+   "name": "Воронежская область",
+   "slug": "voronezhskaya-oblast",
+   "zone": "Воронеж",
+   "kt": 1.35,
+   "direct": false,
+   "geo_path": "osago-v-voronezh",
+   "alts": [
+    {
+     "territory": "Борисоглебск, Лиски, Россошь",
+     "kt": 1.08,
+     "path": "/osago-v-borisoglebsk-liski-rossosh/"
+    }
+   ]
+  },
+  {
+   "name": "Волгоградская область",
+   "slug": "volgogradskaya-oblast",
+   "zone": "Волгоград",
+   "kt": 1.21,
+   "direct": false,
+   "geo_path": "osago-v-volgograd",
+   "alts": [
+    {
+     "territory": "Волжский",
+     "kt": 1.08,
+     "path": "/osago-v-volzhskiy/"
+    },
+    {
+     "territory": "Камышин, Михайловка",
+     "kt": 1.0,
+     "path": "/osago-v-kamyshin-mikhaylovka/"
+    }
+   ]
+  },
+  {
+   "name": "Саратовская область",
+   "slug": "saratovskaya-oblast",
+   "zone": "Саратов",
+   "kt": 1.42,
+   "direct": false,
+   "geo_path": "osago-v-saratov",
+   "alts": [
+    {
+     "territory": "Балаково, Балашов, Вольск",
+     "kt": 1.0,
+     "path": "/osago-v-balakovo-balashov-volsk/"
+    },
+    {
+     "territory": "Энгельс",
+     "kt": 1.16,
+     "path": "/osago-v-engels/"
+    }
+   ]
+  },
+  {
+   "name": "Тюменская область",
+   "slug": "tyumenskaya-oblast",
+   "zone": "Тюмень",
+   "kt": 1.6,
+   "direct": false,
+   "geo_path": "osago-v-tyumen",
+   "alts": [
+    {
+     "territory": "Тобольск",
+     "kt": 1.24,
+     "path": "/osago-v-tobolsk/"
+    }
+   ]
+  },
+  {
+   "name": "Приморский край",
+   "slug": "primorskiy-kray",
+   "zone": "Владивосток",
+   "kt": 1.36,
+   "direct": false,
+   "geo_path": "osago-v-vladivostok",
+   "alts": [
+    {
+     "territory": "Арсеньев, Артем, Находка, Спасск-Дальний, Уссурийск",
+     "kt": 1.0,
+     "path": "/osago-v-arsenev-artem-nakhodka-spassk-dalniy-ussuriysk/"
+    }
+   ]
+  },
+  {
+   "name": "Ставропольский край",
+   "slug": "stavropolskiy-kray",
+   "zone": "Кисловодск, Михайловск, Ставрополь",
+   "kt": 1.16,
+   "direct": false,
+   "geo_path": "osago-v-kislovodsk-mikhaylovsk-stavropol",
+   "alts": []
+  },
+  {
+   "name": "Кемеровская область",
+   "slug": "kemerovskaya-oblast",
+   "zone": "Кемерово",
+   "kt": 1.62,
+   "direct": false,
+   "geo_path": "osago-v-kemerovo",
+   "alts": [
+    {
+     "territory": "Новокузнецк",
+     "kt": 1.64,
+     "path": "/osago-v-novokuznetsk/"
+    },
+    {
+     "territory": "Анжеро-Судженск, Киселевск, Юрга",
+     "kt": 1.16,
+     "path": "/osago-v-anzhero-sudzhensk-kiselevsk-yurga/"
+    },
+    {
+     "territory": "Белово, Березовский, Междуреченск, Осинники, Прокопьевск",
+     "kt": 1.24,
+     "path": "/osago-v-belovo-berezovskiy-mezhdurechensk-osinniki-prokopevsk/"
+    }
+   ]
+  },
+  {
+   "name": "Ярославская область",
+   "slug": "yaroslavskaya-oblast",
+   "zone": "Ярославль",
+   "kt": 1.4,
+   "direct": false,
+   "geo_path": "osago-v-yaroslavl",
+   "alts": []
+  },
+  {
+   "name": "Калининградская область",
+   "slug": "kaliningradskaya-oblast",
+   "zone": "Калининград",
+   "kt": 1.08,
+   "direct": false,
+   "geo_path": "osago-v-kaliningrad",
+   "alts": []
+  },
+  {
+   "name": "Тульская область",
+   "slug": "tulskaya-oblast",
+   "zone": "Тула",
+   "kt": 1.4,
+   "direct": false,
+   "geo_path": "osago-v-tula",
+   "alts": [
+    {
+     "territory": "Узловая, Щекино",
+     "kt": 1.16,
+     "path": "/osago-v-uzlovaya-shchekino/"
+    },
+    {
+     "territory": "Алексин, Ефремов, Новомосковск",
+     "kt": 1.0,
+     "path": "/osago-v-aleksin-efremov-novomoskovsk/"
+    }
+   ]
+  },
+  {
+   "name": "Белгородская область",
+   "slug": "belgorodskaya-oblast",
+   "zone": "Белгород",
+   "kt": 1.24,
+   "direct": false,
+   "geo_path": "osago-v-belgorod",
+   "alts": [
+    {
+     "territory": "Губкин, Старый Оскол",
+     "kt": 1.0,
+     "path": "/osago-v-gubkin-staryy-oskol/"
+    }
+   ]
+  }
+ ]
+}

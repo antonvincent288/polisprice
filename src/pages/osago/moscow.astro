@@ -1,0 +1,58 @@
+---
+import Base from '~/layouts/Base.astro';
+import coefs from '~/data/osago_coefficients_2026.json';
+const tbFiz = coefs.tb.find((t) => t.cat.startsWith('B,BE физлица'));
+const kt = coefs.kt_full.find((r) => r.territory === 'Москва');
+const kvsRow = (age, exp) => coefs.kvs_auto.find((r) => r.age === age)?.[exp];
+const price = (km, kvs, kbm, ko = 1, ks = 1) => {
+  const f = kt.kt * km * kvs * kbm * ko * ks;
+  return { f, min: Math.round(tbFiz.min * f), max: Math.round(tbFiz.max * f) };
+};
+const ex1 = price(1.2, kvsRow('35-39', 'стаж 5-6'), 1.0);
+const ex2 = price(1.2, kvsRow('22-24', 'стаж 0'), 1.17);
+const ex3 = price(1.2, kvsRow('50-59', 'стаж 10-14'), 0.46);
+const fmt = (n) => n.toLocaleString('ru-RU');
+const faq = [
+  { q: 'Сколько стоит ОСАГО в Москве в 2026 году?', a: `КТ Москвы — 1,8, максимальный из применяемых территориальных коэффициентов. Для автомобиля с мощностью 101–120 л.с. диапазон цены на год — от ${fmt(ex1.min)} ₽ (опытный водитель 35–39 лет, класс КБМ 4) до ${fmt(ex2.max)} ₽ (новичок 22 года без стажа, класс КБМ 3).` },
+  { q: 'Почему в Москве ОСАГО дороже, чем в других регионах?', a: 'КТ Москвы 1,8 — максимальный среди всех тарифных зон России. Базовый тариф умножается на этот коэффициент, поэтому при прочих равных полис в Москве примерно вдвое дороже, чем в регионах с КТ 0,9–1,0.' },
+  { q: 'Можно ли оформить ОСАГО не по месту проживания?', a: 'КТ определяется по месту регистрации собственника, а не по месту использования автомобиля. Перекодировка регистрации ради снижения КТ незаконна и ведёт к признанию полиса недействительным.' },
+];
+const ld = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+---
+<Base title="ОСАГО в Москве 2026: КТ 1,8 — сколько стоит полис" description={`Расчёт ОСАГО в Москве: КТ 1,8 — максимальный в России. Примеры цен для авто 101–120 л.с.: от ${fmt(ex1.min)} до ${fmt(ex2.max)} ₽, объяснение коэффициентов ЦБ и способы снизить цену полиса.`}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(ld)} />
+  <p class="text-sm font-medium text-indigo-600">Коэффициенты проверены 05.11.2026 · Указание ЦБ № 7204-У</p>
+  <h1 class="mt-2 text-3xl font-bold">ОСАГО в Москве 2026: сколько стоит и почему</h1>
+  <p class="mt-3 max-w-2xl text-slate-600">Москва — тарифная зона № 82 с КТ 1,8: максимальным территориальным коэффициентом среди всех 192 зон России (для тракторов и спецтехники — 1,16). Базовый тариф, выбранный страховой внутри коридора 1 399–8 665 ₽, умножается на 1,8 — и итоговая цена для москвича получается одной из самых высоких в стране.</p>
+  <section class="mt-8 rounded-2xl border border-slate-200 bg-white p-6">
+    <h2 class="text-xl font-bold">Примеры расчёта для Москвы (мощность 101–120 л.с., КМ 1,2, полис на год)</h2>
+    <div class="mt-4 overflow-x-auto"><table class="w-full min-w-[640px] text-sm">
+      <thead><tr class="text-left text-slate-500"><th class="py-2">Водитель</th><th>КВС</th><th>КБМ</th><th>Цена: мин — макс, ₽</th></tr></thead>
+      <tbody>
+        <tr class="border-t border-slate-100"><td class="py-2">35–39 лет, стаж 5–6 лет, класс КБМ 4 (типичный городской автомобиль)</td><td>0,97</td><td>1,00</td><td class="font-medium">{fmt(ex1.min)} — {fmt(ex1.max)}</td></tr>
+        <tr class="border-t border-slate-100"><td class="py-2">22–24 года, стаж до 1 года, класс КБМ 3</td><td>1,88</td><td>1,17</td><td class="font-medium">{fmt(ex2.min)} — {fmt(ex2.max)}</td></tr>
+        <tr class="border-t border-slate-100"><td class="py-2">50–59 лет, стаж 10–14 лет, класс КБМ 13 (максимальная скидка)</td><td>0,90</td><td>0,46</td><td class="font-medium">{fmt(ex3.min)} — {fmt(ex3.max)}</td></tr>
+      </tbody>
+    </table></div>
+    <p class="mt-4 text-sm text-slate-500">Диапазон показывает предельные значения коридора базового тарифа. Реальная цена конкретной страховой лежит внутри этого диапазона. <a class="text-indigo-600 hover:underline" href="/osago/kalkulyator/">Посчитать для своих параметров →</a></p>
+  </section>
+  <section class="mt-8 rounded-2xl border border-slate-200 bg-white p-6 text-sm text-slate-600">
+    <h2 class="text-xl font-bold text-slate-900">Три способа легально снизить цену в Москве</h2>
+    <ul class="mt-3 space-y-2">
+      <li><b>Ограниченный полис.</b> КО 1,0 против 3,16 в неограниченном — если водителей мало, экономия кратная.</li>
+      <li><b>Копить КБМ.</b> Переход с класса 3 на класс 13 за 10 безаварийных лет снижает цену в 2,5 раза. КБМ сохраняется при смене страховой.</li>
+      <li><b>Сравнивать базовые тарифы.</b> Коридор 1 399–8 665 ₽ — у разных страховых внутри него разные числа; разница для одного водителя может превышать цену целого полиса.</li>
+    </ul>
+  </section>
+  <section class="mt-8">
+    <h2 class="text-2xl font-bold">Частые вопросы</h2>
+    <div class="mt-6 space-y-3">
+      {faq.map((f) => (
+        <details class="rounded-xl border border-slate-200 bg-white p-5">
+          <summary class="cursor-pointer font-medium text-slate-900">{f.q}</summary>
+          <p class="mt-3 text-slate-600">{f.a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+</Base>

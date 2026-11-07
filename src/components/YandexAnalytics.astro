@@ -1,0 +1,12 @@
+---
+import site from '~/data/site.json';
+const { metrikaId } = site;
+let snippet = '';
+if (metrikaId) {
+  snippet = `<script async src="https://mc.yandex.ru/metrika/tag.js"></script>
+<script>window.ym = window.ym || function(){(window.ym.a = window.ym.a || []).push(arguments)}; window.ym.l = 1 * new Date();
+ym(${metrikaId}, "init", { clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: false });</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/${metrikaId}" style="position:absolute;left:-9999px" alt=""></div></noscript>`;
+}
+---
+<Fragment set:html={snippet} />

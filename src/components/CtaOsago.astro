@@ -1,0 +1,12 @@
+---
+import site from '~/data/site.json';
+const p = site.partner || { enabled: false };
+---
+{p.enabled && p.url && (
+  <section class="mt-8 rounded-2xl border border-indigo-200 bg-indigo-50 p-6">
+    <h2 class="text-lg font-bold">{p.label || 'Сравнить цены у страховщиков'}</h2>
+    <p class="mt-2 text-sm text-slate-600">Калькулятор показывает честный диапазон по коэффициентам ЦБ. Дальше можно сравнить предложения страховщиков у партнёра.</p>
+    <a href={p.url} class="mt-3 inline-block rounded-xl bg-indigo-600 px-5 py-2.5 font-medium text-white hover:bg-indigo-700" target="_blank" rel="nofollow noopener">{p.label || 'Сравнить цены'}</a>
+    <p class="mt-2 text-xs text-slate-400">Реклама. Информация о рекламодателе — в оферте партнёрской программы.</p>
+  </section>
+)}

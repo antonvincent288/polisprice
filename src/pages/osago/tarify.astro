@@ -1,0 +1,33 @@
+---
+import Base from '~/layouts/Base.astro';
+import coefs from '~/data/osago_coefficients_2026.json';
+const fmt = (n) => n.toLocaleString('ru-RU');
+---
+
+<script slot="head" type="application/ld+json" set:html={JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Главная", item: "https://polisprice.ru/" }, { "@type": "ListItem", position: 2, name: "ОСАГО" }] })} />
+
+<Base title="Базовые тарифы ОСАГО 2026 — таблица по категориям ТС" description="Коридор базовых тарифов ОСАГО по Указанию ЦБ 7204-У: легковые физлиц 1399–8665 ₽, юрлиц 724–6580 ₽, такси, мото, грузовики. С 09.12.2025 коридор расширен на 15%.">
+  <h1 class="text-3xl font-bold">Базовые тарифы ОСАГО 2026</h1>
+  <p class="mt-2 max-w-2xl text-slate-600">Коридор базовых тарифов (ТБ) по Указанию Банка России № 7204-У (ред. от 04.05.2026). С 09.12.2025 коридор для легковых физлиц расширен на 15% в обе стороны: было 1 646–7 535 ₽, стало 1 399–8 665 ₽.</p>
+  <section class="mt-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white p-6">
+    <table class="w-full min-w-[480px] text-sm"><thead><tr class="text-left text-slate-500"><th class="py-2">Категория</th><th>Минимальный ТБ</th><th>Максимальный ТБ</th></tr></thead><tbody>
+      {coefs.tb.map((t) => (
+        <tr class="border-t border-slate-100">
+          <td class="py-2 font-medium">{t.cat}</td>
+          <td>{fmt(t.min)} ₽</td>
+          <td>{fmt(t.max)} ₽</td>
+        </tr>
+      ))}
+    </tbody></table>
+  </section>
+  <section class="mt-8 rounded-2xl border border-slate-200 bg-white p-6 text-sm text-slate-600">
+    <h2 class="text-xl font-bold text-slate-900">Что это значит на практике</h2>
+    <ul class="mt-3 space-y-2">
+      <li>Страховая обязана держать ТБ внутри коридора, но сама решает, где именно — поэтому один и тот же водитель получает разные цены в разных компаниях.</li>
+      <li>Калькулятор на этом сайте показывает диапазон между предельными значениями коридора — реальное предложение любой компании попадёт в него.</li>
+      <li>Для юрлиц действует отдельный коридор 724–6 580 ₽, для такси — 1 267–18 119 ₽.</li>
+      <li>ЦБ пересматривает коридоры регулярно; следите за обновлениями на сайте Банка России.</li>
+    </ul>
+    <a href="/osago/kalkulyator/" class="mt-6 inline-block rounded-full bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-indigo-700">Рассчитать свой диапазон</a>
+  </section>
+</Base>

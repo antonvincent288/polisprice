@@ -1,0 +1,107 @@
+---
+import Base from '~/layouts/Base.astro';
+import coefs from '~/data/osago_coefficients_2026.json';
+
+const ktSorted = [...coefs.kt_full].sort((a, b) => a.territory.localeCompare(b.territory, 'ru'));
+const kvsTable = {};
+coefs.kvs_auto.forEach((row) => {
+  Object.entries(row).forEach(([k, v]) => {
+    if (k !== 'age') kvsTable[row.age + '|' + k] = v;
+  });
+});
+const ages = coefs.kvs_auto.map((r) => r.age);
+const exps = Object.keys(coefs.kvs_auto[0]).filter((k) => k !== 'age');
+const ageLabels = { '18-21': '18–21 год', '22-24': '22–24 года', '25-29': '25–29 лет', '30-34': '30–34 года', '35-39': '35–39 лет', '40-49': '40–49 лет', '50-59': '50–59 лет', '59+': '59 и старше' };
+const expLabels = { 'стаж 0': 'менее 1 года', 'стаж 1': '1 год', 'стаж 2': '2 года', 'стаж 3-4': '3–4 года', 'стаж 5-6': '5–6 лет', 'стаж 7-9': '7–9 лет', 'стаж 10-14': '10–14 лет', 'стаж 14+': 'более 14 лет' };
+const tbFiz = coefs.tb.find((t) => t.cat.startsWith('B,BE физлица'));
+const kbmItems = Object.entries(coefs.kbm.classes).reverse();
+const kmItems = coefs.km_auto;
+const koUnlimited = coefs.ko['неограниченный: физлицо'];
+
+const sdata = { kt: ktSorted, kvs: kvsTable, ages, exps, tbMin: tbFiz.min, tbMax: tbFiz.max, kbm: kbmItems, km: kmItems, koUnlimited };
+---
+<script slot="head" type="application/ld+json" set:html={JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Главная", item: "https://polisprice.ru/" }, { "@type": "ListItem", position: 2, name: "ОСАГО", item: "https://polisprice.ru/osago/regiony/" }, { "@type": "ListItem", position: 3, name: "Сравнение полисов" }] })} />
+
+<Base title="Сравнение ОСАГО: ограниченный и неограниченный полис" description="Какой полис дешевле: ограниченный по списку водителей или неограниченный? Считаем оба по коэффициентам ЦБ и показываем, где вы платите лишнее.">
+  <h1 class="text-4xl font-bold">Сравнение: ограниченный или неограниченный полис</h1>
+  <p class="mt-4 text-lg text-slate-600">Ответьте на четыре вопроса — и увидите оба полиса рядом. Цена пересчитывается мгновенно по коэффициентам Банка России (Указание № 7204-У), без регистрации и сбора данных.</p>
+
+  <div class="mt-8 rounded-2xl border border-slate-200 bg-white p-6" id="sravenie-root" data-coefs={JSON.stringify(sdata)}>
+    <div class="grid gap-4 sm:grid-cols-2">
+      <label class="block"><span class="text-sm font-bold">Город регистрации</span>
+        <select id="sr-city" class="mt-1 w-full rounded-xl border border-slate-300 p-2.5 text-sm"></select></label>
+      <label class="block"><span class="text-sm font-bold">Мощность двигателя</span>
+        <select id="sr-km" class="mt-1 w-full rounded-xl border border-slate-300 p-2.5 text-sm"></select></label>
+      <label class="block"><span class="text-sm font-bold">Возраст худшего водителя</span>
+        <select id="sr-age" class="mt-1 w-full rounded-xl border border-slate-300 p-2.5 text-sm"></select></label>
+      <label class="block"><span class="text-sm font-bold">Стаж худшего водителя</span>
+        <select id="sr-exp" class="mt-1 w-full rounded-xl border border-slate-300 p-2.5 text-sm"></select></label>
+      <label class="block sm:col-span-2"><span class="text-sm font-bold">КБМ самого аварийного водителя</span>
+        <select id="sr-kbm" class="mt-1 w-full rounded-xl border border-slate-300 p-2.5 text-sm"></select></label>
+    </div>
+    <div class="mt-6 grid gap-3 sm:grid-cols-2" id="sr-result" hidden>
+      <div class="rounded-2xl border-2 border-slate-200 bg-white p-5" id="sr-lim">
+        <p class="text-sm font-bold text-slate-500">Ограниченный полис</p>
+        <p class="mt-2 text-2xl font-bold tabular-nums" id="sr-lim-price"></p>
+        <p class="mt-1 text-xs text-slate-500">цена = тариф × КТ × КМ × КВС × КБМ</p>
+      </div>
+      <div class="rounded-2xl border-2 border-slate-200 bg-white p-5" id="sr-unl">
+        <p class="text-sm font-bold text-slate-500">Неограниченный полис</p>
+        <p class="mt-2 text-2xl font-bold tabular-nums" id="sr-unl-price"></p>
+        <p class="mt-1 text-xs text-slate-500">цена = тариф × КТ × КМ × КБМ × КО 3,16 (КВС не применяется)</p>
+      </div>
+    </div>
+    <p class="mt-4 rounded-xl bg-indigo-50 border border-indigo-100 p-4 text-sm font-medium" id="sr-verdict" hidden></p>
+  </div>
+
+  <section class="mt-8 rounded-2xl border border-slate-200 bg-white p-6">
+    <h2 class="text-lg font-bold">Как читать результат</h2>
+    <p class="mt-2 text-sm text-slate-600">В ограниченном полисе цена считается по худшему водителю из списка. В неограниченном КВС не применяется — умножается КО 3,16, а КБМ привязан к собственнику. Выгоднее тот полис, где цена ниже при одинаковой машине и городе.</p>
+    <p class="mt-2 text-sm text-slate-600">Подробный разбор с готовой таблицей — в гайде «<a href="/guides/neogranichenny-polis-osago/" class="text-indigo-600 font-medium hover:underline">Неограниченный полис ОСАГО</a>». Обычный расчёт — в <a href="/osago/kalkulyator/" class="text-indigo-600 font-medium hover:underline">калькуляторе ОСАГО</a>.</p>
+  </section>
+
+  <script is:inline>
+  window.addEventListener('DOMContentLoaded', function () {
+    var root = document.getElementById('sravenie-root');
+    if (!root) return;
+    var D = JSON.parse(root.getAttribute('data-coefs'));
+    var $ = function (id) { return document.getElementById(id); };
+    function fmt(v) { return v.toLocaleString('ru-RU'); }
+    function opts(sel, pairs, first) {
+      sel.innerHTML = '';
+      if (first) { var o0 = document.createElement('option'); o0.textContent = first; sel.appendChild(o0); }
+      pairs.forEach(function (p) { var o = document.createElement('option'); o.value = p[0]; o.textContent = p[1]; sel.appendChild(o); });
+    }
+    opts($('sr-city'), D.kt.map(function (r) { return [r.territory, r.territory]; }));
+    opts($('sr-km'), D.km.map(function (x) { return [x[0], x[0] + ' л.с. — КМ ' + String(x[1]).replace('.', ',')]; }));
+    opts($('sr-age'), D.ages.map(function (a) { return [a, ageLabels[a] || a]; }));
+    opts($('sr-exp'), D.exps.map(function (e) { return [e, expLabels[e] || e]; }));
+    opts($('sr-kbm'), D.kbm.map(function (x) { return [x[1], 'Класс ' + x[0] + ' — КБМ ' + String(x[1]).replace('.', ',')]; }));
+    function calc() {
+      var city = D.kt.filter(function (r) { return r.territory === $('sr-city').value; })[0];
+      var kbm = $('sr-kbm').value, kt = city ? city.kt : 1;
+      var kmVal = null;
+      D.km.forEach(function (x) { if (x[0] === $('sr-km').value) kmVal = x[1]; });
+      var kvs = D.kvs[$('sr-age').value + '|' + $('sr-exp').value];
+      if (!city || !kmVal || kbm === '' || kvs == null) { $('sr-result').hidden = true; $('sr-verdict').hidden = true; return; }
+      var lim = [D.tbMin, D.tbMax].map(function (t) { return t * kt * kmVal * kvs * kbm; });
+      var unl = [D.tbMin, D.tbMax].map(function (t) { return t * kt * kmVal * kbm * D.koUnlimited; });
+      $('sr-result').hidden = false;
+      $('sr-lim-price').textContent = 'от ' + fmt(Math.round(lim[0])) + ' до ' + fmt(Math.round(lim[1])) + ' ₽';
+      $('sr-unl-price').textContent = 'от ' + fmt(Math.round(unl[0])) + ' до ' + fmt(Math.round(unl[1])) + ' ₽';
+      var diff = unl[0] - lim[0];
+      var v = $('sr-verdict'); v.hidden = false;
+      if (unl[0] <= lim[0]) {
+        $('sr-unl').classList.add('border-indigo-600'); $('sr-lim').classList.remove('border-indigo-600');
+        v.textContent = 'При ваших данных неограниченный полис дешевле ограниченного — вписанный водитель сильно удорожает список.';
+      } else {
+        $('sr-lim').classList.add('border-indigo-600'); $('sr-unl').classList.remove('border-indigo-600');
+        v.textContent = 'Ограниченный полис дешевле примерно на ' + fmt(Math.round(unl[0] - lim[0])) + ' ₽ в год. Открытый список оправдан, только если водителей много и они часто меняются.';
+      }
+    }
+    ['sr-city', 'sr-km', 'sr-age', 'sr-exp', 'sr-kbm'].forEach(function (id) { $(id).addEventListener('change', calc); });
+    // начальное состояние: Москва
+    $('sr-city').value = 'Москва';
+  });
+  </script>
+</Base>
