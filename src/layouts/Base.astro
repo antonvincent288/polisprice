@@ -128,6 +128,14 @@ main a { text-underline-offset: 2px; }
 <style is:inline>
   /* --- PolisPrice premium layer (batch 38) --- */
   html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow-x: clip; }
+  /* --- typographic scale (design-system pass, единая точка правды) --- */
+  main h1 { font-size: clamp(2.25rem, 1rem + 2.8vw, 3.75rem) !important; line-height: 1.06 !important; letter-spacing: -0.022em; font-weight: 700; }
+  main h2 { font-size: clamp(1.5rem, 1.25rem + 0.8vw, 1.875rem) !important; line-height: 1.2 !important; letter-spacing: -0.01em; font-weight: 700; }
+  main h3 { font-size: 1.25rem !important; line-height: 1.35 !important; font-weight: 600; }
+  main p, main li { line-height: 1.65; }
+  main .text-xl, main .lead { line-height: 1.6; }
+  table { font-variant-numeric: tabular-nums; }
+
   body { overflow-x: clip; }
   h1, h2, h3 { letter-spacing: -0.015em; }
 
