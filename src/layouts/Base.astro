@@ -189,7 +189,26 @@ main a { text-underline-offset: 2px; }
   .pp-metric > div:first-child { font-size: 1.5rem; font-weight: 800; color: #1d4ed8; letter-spacing: -0.02em; }
   .pp-metric > div:last-child { margin-top: .35rem; font-size: .84rem; color: #64748b; }
 </style>
-</head>
+
+  <style is:global>/* pp-brand-layer: эталон source_article.html, 2026-11-07 */
+  :root { --pp-blue:#0B3D91; --pp-red:#E63946; --pp-bg:#F7F8FA; --pp-line:#EAECF0; --pp-ink:#101828; --pp-mut:#667085; }
+  h2 { color: var(--pp-blue); border-bottom: 2px solid var(--pp-line); padding-bottom: .45rem; }
+  h3 { color: var(--pp-ink); }
+  table th { background: var(--pp-blue); color: #fff; }
+  table td { border-bottom: 1px solid var(--pp-line); }
+  summary { font-weight: 600; color: var(--pp-ink); }
+  .pp-metric { background: var(--pp-bg); border: 1px solid var(--pp-line); border-radius: 10px; box-shadow: none; padding: 1.1rem .8rem; }
+  .pp-metric > div:first-child { font-size: 1.55rem; font-weight: 800; color: var(--pp-blue); }
+  .pp-metric > div:last-child { font-size: .82rem; color: var(--pp-mut); }
+  .pp-hero-kicker { color: #b8d0f5; }
+  .pp-hero-sub { color: rgba(230,238,251,.9); }
+  .pp-hero { background:
+    radial-gradient(720px 360px at 18% -8%, rgba(64,116,211,.4), transparent 62%),
+    radial-gradient(560px 320px at 92% 12%, rgba(11,41,94,.6), transparent 60%),
+    linear-gradient(158deg, #082A66 0%, #0B3D91 48%, #13479F 100%); }
+  .pp-btn-primary { background: linear-gradient(180deg, #1d5fc2 0%, #0B3D91 100%); }
+  a { text-decoration-color: var(--pp-line); }
+  </style></head>
   <body class="bg-slate-50 text-slate-800 antialiased">
     <header class="sticky top-0 z-40 border-b border-slate-200 bg-white/90 backdrop-blur">
       <div class="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-4 py-3">
