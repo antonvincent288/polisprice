@@ -56,10 +56,11 @@ export default defineConfig({
     pagefind(),
     sitemap({
       serialize(item) {
-        const u = item.url;
+        const BASE_URL = '/polisprice';
+        const u = item.url.replace(BASE_URL, '');
         const isGuide = u.includes('/guides/');
         const isGeo = u.includes('/osago-v-');
-        return { ...item, changefreq: isGuide ? 'weekly' : isGeo ? 'monthly' : 'weekly', priority: isGuide ? 0.9 : isGeo ? 0.7 : 0.5, lastmod: new Date('2026-11-07') };
+        return { ...item, url: u, changefreq: isGuide ? 'weekly' : isGeo ? 'monthly' : 'weekly', priority: isGuide ? 0.9 : isGeo ? 0.7 : 0.5, lastmod: new Date('2026-11-07') };
       },
     }),,
     mdx(),
