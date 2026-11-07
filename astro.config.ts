@@ -25,10 +25,10 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
   hasExternalScripts ? (Array.isArray(items) ? items.map((item) => item()) : [items()]) : [];
 
 export default defineConfig({
-  build: { assetsPrefix: '/polisprice' }, // временно: github.io/polisprice; убрать после подключения polisprice.ru
   output: 'static',
 
   site: 'https://polisprice.ru',
+  base: '/polisprice', // временно для github.io/polisprice; вернуть '/' после подключения домена
 
   // Prefetch links as they enter the viewport for snappier navigations
   // (works together with <ClientRouter />, which enables prefetch by default).
