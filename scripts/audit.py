@@ -10,8 +10,14 @@ UA = {'User-Agent': 'polisprice-audit/1.0'}
 
 # 502/503/429 — транзиентные сбои CDN GitHub Pages: ретраим до 3 раз с паузой
 cache = {}
+def _norm(path):
+    # normalize double base: BASE may already contain '/polisprice/' while href starts with it
+    if path.startswith('/polisprice/'):
+        return path[len('/polisprice'):]
+    return path
+
 def get(path):
-    url = path if path.startswith('http') else BASE + path.lstrip('/')
+    url = path if path.startswith('http') else BASE + _norm(path).lstrip('/')
     if url in cache:
         return cache[url]
     for attempt in range(3):
