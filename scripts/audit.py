@@ -12,6 +12,8 @@ UA = {'User-Agent': 'polisprice-audit/1.0'}
 cache = {}
 def _norm(path):
     # normalize double base: BASE may already contain '/polisprice/' while href starts with it
+    if path == '/polisprice':
+        return '/'
     if path.startswith('/polisprice/'):
         return path[len('/polisprice'):]
     return path
@@ -220,7 +222,7 @@ check('head: charset≤1024 и title у всех страниц', not _cs_bad an
 check('head: нет deprecated-мета', not _dep_all, str(_dep_all[:3]))
 
 # Клик-глубина с главной (link_graph: BFS по внутренним ссылкам)
-_urls = {p: re.findall(r'href="(/[^"#?]+)"', h) for p, h in pages.items() if p.endswith('/')}
+_urls = {p: [_norm(u) for u in re.findall(r'href="(/[^"#?]+)"', h)] for p, h in pages.items() if p.endswith('/')}
 _nodes = set(_urls)
 _nodes = set(_urls)
 _links = {p: [(u.lstrip('/') if u.lstrip('/') in _nodes else (u.lstrip('/') + '/' if u.lstrip('/') + '/' in _nodes else None)) for u in ls if u != '/'] for p, ls in _urls.items()}
@@ -250,7 +252,7 @@ _anchor_edges = 0
 _exact = 0
 for p, ls in _urls.items():
     for m in re.finditer(r'<a[^>]*href="(/[^"#?]+)"[^>]*>(.*?)</a>', pages[p], re.S):
-        _u = m.group(1).lstrip('/')
+        _u = _norm(m.group(1)).lstrip('/')
         tgt = _u if _u in _nodes else (_u + '/' if _u + '/' in _nodes else None)
         if tgt and tgt != p:
             _anchor_edges += 1
