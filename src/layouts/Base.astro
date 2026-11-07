@@ -117,6 +117,78 @@ main a { text-underline-offset: 2px; }
   html { scroll-behavior: smooth; }
 }
 </style>
+
+<style is:inline>
+  /* --- PolisPrice premium layer (batch 38) --- */
+  html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  h1, h2, h3 { letter-spacing: -0.015em; }
+
+  .pp-hero {
+    position: relative; overflow: hidden; border-radius: 32px;
+    padding: clamp(2.4rem, 6vw, 4.6rem);
+    color: #fff;
+    background:
+      radial-gradient(720px 360px at 18% -8%, rgba(96,165,250,.38), transparent 62%),
+      radial-gradient(560px 320px at 92% 12%, rgba(30,64,175,.5), transparent 60%),
+      linear-gradient(158deg, #0a1f3d 0%, #0d2b55 48%, #113a72 100%);
+    box-shadow: 0 24px 70px -28px rgba(13, 43, 85, .55), 0 2px 8px rgba(13, 43, 85, .18);
+    isolation: isolate;
+  }
+  .pp-hero::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+    background-size: 44px 44px;
+    -webkit-mask-image: radial-gradient(760px 480px at 24% 12%, black, transparent 74%);
+    mask-image: radial-gradient(760px 480px at 24% 12%, black, transparent 74%);
+  }
+  .pp-hero-kicker {
+    position: relative; z-index: 1;
+    font-size: .78rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+    color: #9cc2ff;
+  }
+  .pp-hero-title {
+    position: relative; z-index: 1;
+    margin-top: .9rem;
+    font-size: clamp(2.15rem, 5vw, 3.5rem);
+    line-height: 1.06; font-weight: 800; letter-spacing: -0.02em;
+    color: #f6faff;
+    text-shadow: 0 2px 24px rgba(10, 31, 61, .45);
+  }
+  .pp-hero-sub {
+    position: relative; z-index: 1;
+    margin-top: 1.1rem; max-width: 46rem;
+    font-size: 1.06rem; line-height: 1.65;
+    color: rgba(224, 237, 255, .88);
+  }
+  .pp-hero-cta { position: relative; z-index: 1; margin-top: 2.1rem; display: flex; flex-wrap: wrap; gap: .8rem; }
+  .pp-btn-primary, .pp-btn-ghost {
+    display: inline-flex; align-items: center; gap: .5rem;
+    padding: .92rem 1.7rem; border-radius: 999px;
+    font-weight: 600; font-size: .98rem; line-height: 1.2;
+    transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease;
+  }
+  .pp-btn-primary {
+    color: #fff;
+    background: linear-gradient(180deg, #3b82f6 0%, #1d4ed8 100%);
+    box-shadow: 0 10px 28px rgba(29, 78, 216, .42), inset 0 1px 0 rgba(255,255,255,.22);
+  }
+  .pp-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 36px rgba(29, 78, 216, .5); }
+  .pp-btn-ghost { color: #e6efff; border: 1px solid rgba(255,255,255,.32); background: rgba(255,255,255,.04); }
+  .pp-btn-ghost:hover { background: rgba(255,255,255,.1); transform: translateY(-2px); }
+
+  .pp-metric {
+    border: 1px solid #e3ecfa; border-radius: 20px;
+    padding: 1.5rem 1rem; text-align: center;
+    background: linear-gradient(180deg, #ffffff 0%, #f5f9ff 100%);
+    box-shadow: 0 1px 2px rgba(16, 24, 40, .05), 0 14px 34px -14px rgba(29, 78, 216, .16);
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+  .pp-metric:hover { transform: translateY(-3px); box-shadow: 0 1px 2px rgba(16,24,40,.05), 0 20px 44px -16px rgba(29, 78, 216, .24); }
+  .pp-metric > div:first-child { font-size: 1.5rem; font-weight: 800; color: #1d4ed8; letter-spacing: -0.02em; }
+  .pp-metric > div:last-child { margin-top: .35rem; font-size: .84rem; color: #64748b; }
+</style>
 </head>
   <body class="bg-slate-50 text-slate-800 antialiased">
     <header class="sticky top-0 z-40 border-b border-slate-200 bg-white/90 backdrop-blur">
