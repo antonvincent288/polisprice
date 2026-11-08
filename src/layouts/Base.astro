@@ -135,6 +135,22 @@ main a { text-underline-offset: 2px; }
   main p, main li { line-height: 1.65; }
   main .text-xl, main .lead { line-height: 1.6; }
   table { font-variant-numeric: tabular-nums; }
+  /* --- semantic tokens: unify indigo -> brand (единая точка правды) --- */
+  .text-indigo-600, .text-indigo-500 { color: var(--pp-blue) !important; }
+  .hover\:text-indigo-600:hover { color: var(--pp-blue) !important; }
+  .hover\:border-indigo-400:hover { border-color: rgba(11, 61, 145, 0.45) !important; }
+  .bg-indigo-600 { background-color: var(--pp-blue) !important; }
+  .hover\:bg-indigo-500:hover { background-color: var(--pp-deep) !important; }
+  .bg-indigo-50 { background-color: #EFF4FB !important; }
+  .border-indigo-100, .border-indigo-200 { border-color: #D6E2F4 !important; }
+  .text-primary { color: var(--aw-color-primary) !important; }
+  /* --- focus states (доступность) --- */
+  main a:focus-visible, main button:focus-visible, main summary:focus-visible,
+  header a:focus-visible, header button:focus-visible {
+    outline: 2px solid var(--pp-blue);
+    outline-offset: 2px;
+  }
+
 
   body { overflow-x: clip; }
   h1, h2, h3 { letter-spacing: -0.015em; }
