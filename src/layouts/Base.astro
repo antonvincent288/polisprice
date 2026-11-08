@@ -28,7 +28,10 @@ const year = new Date().getFullYear();
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
-    <link rel="icon" href="/polisprice/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/polisprice/favicon-32.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/polisprice/apple-touch-icon.png" />
+<link rel="preload" as="font" type="font/woff2" href="/polisprice/fonts/golos-text-400-cyrillic.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="/polisprice/fonts/golos-text-700-cyrillic.woff2" crossorigin />
     <link rel="alternate" type="application/rss+xml" title="ПолисПрайс — гайды" href="/polisprice/rss.xml" />
     <link rel="canonical" href={canonical} />
     <meta property="og:type" content="website" />
