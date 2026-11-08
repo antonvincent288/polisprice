@@ -26,6 +26,15 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
 
 export default defineConfig({
   output: 'static',
+  // Permanent 301: слитые дубли-гайды (каннибализация устранена 08.11.2026)
+  redirects: {
+    '/guides/kak-proverit-kbm': { destination: '/guides/kak-proverit-kbm-po-base', status: 301 },
+    '/guides/osago-dlya-novichka': { destination: '/guides/osago-dlya-novichka-2026', status: 301 },
+    '/guides/osago-na-mesyats-i-polgoda': { destination: '/guides/osago-na-mesyac-i-polgoda', status: 301 },
+    '/guides/dokumenty-dlya-osago': { destination: '/guides/dokumenty-dlya-osago-2026', status: 301 },
+    '/guides/osago-na-pritsep': { destination: '/guides/osago-na-pricep', status: 301 },
+  },
+
 
   site: 'https://polisprice.ru',
   base: '/polisprice', // временно для github.io/polisprice; вернуть '/' после подключения домена
