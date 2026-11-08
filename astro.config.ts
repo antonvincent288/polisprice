@@ -26,6 +26,15 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
 
 export default defineConfig({
   output: 'static',
+  // Permanent 301: слитые дубли-гайды (каннибализация устранена 08.11.2026)
+  redirects: {
+    '/guides/kak-proverit-kbm': { destination: '/guides/kak-proverit-kbm-po-base', permanent: true },
+    '/guides/osago-dlya-novichka': { destination: '/guides/osago-dlya-novichka-2026', permanent: true },
+    '/guides/osago-na-mesyats-i-polgoda': { destination: '/guides/osago-na-mesyac-i-polgoda', permanent: true },
+    '/guides/dokumenty-dlya-osago': { destination: '/guides/dokumenty-dlya-osago-2026', permanent: true },
+    '/guides/osago-na-pritsep': { destination: '/guides/osago-na-pricep', permanent: true },
+  },
+
 
   site: 'https://polisprice.ru',
   base: '/polisprice', // временно для github.io/polisprice; вернуть '/' после подключения домена
@@ -60,9 +69,9 @@ export default defineConfig({
         const u = item.url.replace('https://polisprice.ru/polisprice', 'https://polisprice.ru');
         const isGuide = u.includes('/guides/');
         const isGeo = u.includes('/osago-v-');
-        return { ...item, url: u, changefreq: isGuide ? 'weekly' : isGeo ? 'monthly' : 'weekly', priority: isGuide ? 0.9 : isGeo ? 0.7 : 0.5, lastmod: new Date('2026-11-07') };
+        return { ...item, url: u, changefreq: isGuide ? 'weekly' : isGeo ? 'monthly' : 'weekly', priority: isGuide ? 0.9 : isGeo ? 0.7 : 0.5, lastmod: new Date('2026-11-08') };
       },
-    }),,
+    }),
     mdx(),
     icon({
       // Local SVG icons (used as <Icon name="file-name" />) live next to the other assets.
