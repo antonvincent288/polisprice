@@ -3,6 +3,7 @@ import Base from '~/layouts/Base.astro';
 import Hero from '~/components/widgets/Hero2.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import Features from '~/components/widgets/Features.astro';
 import coefs from '~/data/osago_coefficients_2026.json';
 import guides from '~/data/guides.json';
 const ktCount = coefs.kt_full.length;
@@ -65,6 +66,27 @@ const guideTop = guideOrder.map((s) => guideArr.find((g) => g.slug === s)).filte
     <p class="mt-4 text-sm text-slate-500">Источник: Указание Банка России от 09.10.2025 № 7204-У (ред. от 04.05.2026). Полные таблицы — в <a class="text-primary hover:underline" href="/polisprice/osago/koeffitsienty/">справочнике коэффициентов</a>.</p>
   </section>
 
+
+  <!-- Блок 2.5: как работает калькулятор — 3 шага -->
+  <Features
+    title="Три шага до точного расчёта"
+    subtitle="Никаких регистраций и звонков: калькулятор считает по той же формуле, по которой считают страховые."
+    columns={3}
+    items={[
+      {
+        title: 'Укажите регион',
+        description: 'Территориальный коэффициент КТ — из 192 зон по всей России. Москва 1,8, СПб 1,64, Казань 1,7.',
+      },
+      {
+        title: 'Выберите параметры',
+        description: 'Мощность двигателя, возраст и стаж, класс КБМ — каждый параметр виден как коэффициент, а не «магия».',
+      },
+      {
+        title: 'Получите диапазон цены',
+        description: 'Формула Указания № 7204-У: честный коридор по базовым тарифам страховых, без округлений в свою пользу.',
+      },
+    ]}
+  />
   <!-- Блок 3: главный конверсионный CTA — момент после понимания механики -->
   <section class="mt-12">
     <CallToAction
