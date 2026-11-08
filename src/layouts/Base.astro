@@ -138,6 +138,14 @@ main a { text-underline-offset: 2px; }
   main p, main li { line-height: 1.65; }
   main .text-xl, main .lead { line-height: 1.6; }
   table { font-variant-numeric: tabular-nums; }
+  /* --- mobile scrolling table fix --- */
+  main table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
   /* --- semantic tokens: unify indigo -> brand (единая точка правды) --- */
   .text-indigo-600, .text-indigo-500 { color: var(--pp-blue) !important; }
   .hover\:text-indigo-600:hover { color: var(--pp-blue) !important; }
