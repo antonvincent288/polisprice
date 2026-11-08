@@ -4,6 +4,7 @@ import Hero from '~/components/widgets/Hero2.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import coefs from '~/data/osago_coefficients_2026.json';
+import guides from '~/data/guides.json';
 const ktCount = coefs.kt_full.length;
 const faq = [
   { q: 'Сколько стоит ОСАГО в 2026 году?', a: 'Базовый тариф для легковых физлиц — коридор от 1 399 до 8 665 ₽ (расширен на 15% в обе стороны с 09.12.2025). Итоговая цена = базовый тариф × территориальный коэффициент × КБМ × коэффициент возраста и стажа × другие коэффициенты. Калькулятор на сайте показывает диапазон по этим коэффициентам.' },
@@ -11,16 +12,15 @@ const faq = [
   { q: 'Что такое КБМ и как получить скидку?', a: 'КБМ — коэффициент бонус-малус, зависит от истории убытков. Класс 13 даёт коэффициент 0,46 (скидка 54%), класс «М» — 3,92. КБМ обновляется 1 апреля ежегодно и сохраняется при смене страховой.' },
 ];
 const ld = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
-const guideTop = [
-  { slug: 'kbm-posle-smeny-famili', title: 'КБМ после смены фамилии', desc: 'Скидка «слетела» после замены паспорта — как проверить класс по базе РСА и восстановить историю.' },
-  { slug: 'bazovye-tarify-sk-2026', title: 'Базовые тарифы страховых 2026', desc: 'Какую точку коридора 1 399–8 665 ₽ выбрала каждая СК и почему цена на один и тот же полис различается вдвое.' },
-  { slug: 'shtraf-za-osago', title: 'Штраф за ОСАГО в 2026', desc: 'Суммы, сроки, повторное вождение без полиса и когда штраф выписывают по камерам.' },
-  { slug: 'diagnosticheskaya-karta-osago', title: 'Диагностическая карта для ОСАГО', desc: 'Нужна ли техосмотр для полиса в 2026 году и как это влияет на расчёт.' },
-];
+const guideOrder = ['kbm-posle-smeny-famili', 'bazovye-tarify-sk-2026', 'shtraf-za-osago', 'diagnosticheskaya-karta-osago'];
+const guideArr = Array.isArray(guides) ? guides : guides.guides ?? [];
+const guideTop = guideOrder.map((s) => guideArr.find((g) => g.slug === s)).filter(Boolean).map((g) => ({ slug: g.slug, title: g.title, desc: (g.desc || '').split(' ').slice(0, 16).join(' ') + '…' }));
 ---
 
 <script slot="head" type="application/ld+json" set:html={JSON.stringify({ "@context": "https://schema.org", "@type": "WebSite", name: "ПолисПрайс", url: "https://polisprice.ru/", inLanguage: "ru-RU" })} />
 <script slot="head" type="application/ld+json" set:html={JSON.stringify({ "@context": "https://schema.org", "@type": "Organization", name: "ПолисПрайс", url: "https://polisprice.ru/", logo: "https://polisprice.ru/og-image.png" })} />
+
+<script slot="head" is:inline set:html={"<link rel='preload' href='/polisprice/hero-mock.png' as='image' type='image/png' />"} />
 
 <Base title="Калькулятор ОСАГО 2026 — расчёт по коэффициентам ЦБ" description="Калькулятор ОСАГО по официальным коэффициентам Банка России: КТ, КБМ, КВС, КМ. Таблицы тарифов по регионам, обновление 05.11.2026.">
   <Hero
@@ -31,7 +31,7 @@ const guideTop = [
       { text: 'Рассчитать мой полис', href: '/polisprice/osago/kalkulyator/', variant: 'primary' },
       { text: 'Справочник коэффициентов', href: '/polisprice/osago/koeffitsienty/' },
     ]}
-    image={'<img src="/polisprice/hero-mock.png" alt="Пример расчёта ОСАГО по коэффициентам ЦБ" loading="eager" fetchpriority="high" class="mx-auto w-auto max-h-[34rem] object-contain" />'}
+    image={'<img src="/polisprice/hero-mock.png" alt="Пример расчёта ОСАГО по коэффициентам ЦБ" width="1200" height="900" loading="eager" fetchpriority="high" class="mx-auto w-auto max-h-[34rem] object-contain" />'}
   />
 
   <!-- Блок 1: KPI-факты — доверие цифрами ЦБ -->
