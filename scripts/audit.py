@@ -348,8 +348,8 @@ _cfg_path = _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__f
 _cf = _json.load(open(_cfg_path, encoding='utf-8'))
 _drift = []
 _kts = [x['kt'] for x in _cf['kt_full']]
-if len(_kts) != 192:
-    _drift.append(f'kt_full: {len(_kts)} зон вместо 192')
+if len(_kts) != 191:
+    _drift.append(f'kt_full: {len(_kts)} зон вместо 191 (Кстово исключён по 7349-У)')
 for _k, _v in _cf['kbm']['classes'].items():
     if not (0.46 <= _v <= 3.92):
         _drift.append(f'КБМ класс {_k} = {_v} вне коридора 0,46–3,92')
