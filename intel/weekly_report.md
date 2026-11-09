@@ -1,18 +1,7 @@
-# Еженедельный свод разведки — 2026-11-08
+# Еженедельный свод разведки — 2026-11-09
 
-Файлов за 7 дней: 3 | находок всего: 7
-Дедуп-реестр: devto: 5, hn: 12, npm: 15, repos: 271, rss: 35
-
-## recon_2026-11-06.md
-# Разведка 2026-11-06
-
-- ★533 [yaojingang/GEORank](https://github.com/yaojingang/GEORank) — Open-source GEO ranking and generative engine optimization platform. · GitHub
-- ★1356 [onvoyage-ai/gtm-engineer-skills](https://github.com/onvoyage-ai/gtm-engineer-skills) — Claude Code skill for improving website AEO (AI Engine Optimization) and GEO (Generative Engine Optimization) scores — 1 · GitHub
-- ★433 [ai-search-guru/getcito-worlds-first-open-source-aio-aeo-or-geo-tool](https://github.com/ai-search-guru/getcito-worlds-first-open-source-aio-aeo-or-geo-tool) — GetCito the World's First Open Source AI Search Optimization (AIO) / Answer Engine Optimization (AEO) or Generative Engi · GitHub
-- ★128 [DavidHuji/Awesome-GEO](https://github.com/DavidHuji/Awesome-GEO) — Awesome list for research on GEO (Generative Engine Optimization) · GitHub
-- ★217 [mverab/eGEOagents](https://github.com/mverab/eGEOagents) — Open-source Generative Engine Optimization (GEO) & Answer Engine Optimization (AEO) toolkit — optimize content to rank i · GitHub
-- ★860 [StJudeWasHere/seonaut](https://github.com/StJudeWasHere/seonaut) — Open source SEO audit tool. · GitHub
-- ★663 [seo-skills/seo-audit-skill](https://gith
+Файлов за 7 дней: 4 | находок всего: 8
+Дедуп-реестр: devto: 7, hn: 12, npm: 16, repos: 305, rss: 38
 
 ## recon_2026-11-07.md
 # Разведка 2026-11-07
@@ -40,5 +29,25 @@
 ### SEO-хаб
 
 - [Правда ли нейросети выдумывают ссылки и почему в их ответах остаются удалённые статьи](https://habr.com/ru/articles/1104870/?utm_campaign=1104870&amp;utm_source=habrahabr&amp;utm_medium=rss) · Habr · SEO-хаб
+
+
+
+## recon_2026-11-09.md
+# Разведка 2026-11-09
+
+## Прогон 07:56 UTC
+
+### прочее
+
+- npm: [nextjs-seo-audit-mcp](https://www.npmjs.com/package/nextjs-seo-audit-mcp) — Next.js SEO Audit: read-only MCP server (stdio) that audits a deployed site for SEO and indexing issues from an agent, b
+
+### dev.to
+
+- 0♥ [Google AI Mode Adds Booking and Quote Links for Home Services](https://dev.to/alifar/google-ai-mode-adds-booking-and-quote-links-for-home-services-jid) · dev.to
+- 0♥ [AI Overviews: Why Brand Mentions Matter More Than Backlinks](https://dev.to/alifar/ai-overviews-why-brand-mentions-matter-more-than-backlinks-22i1) · dev.to
+
+### SEO-хаб
+
+- [AI-краулеры и GEO: почему robots.txt разрешает обход, а сайт остаётся недоступным](https://habr.com/ru/articles/1105074/?utm_campaign=1105074&amp;utm_source=habrahabr&amp;utm_medium=rss) · Habr · SEO-хаб
 
 

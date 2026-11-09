@@ -270,6 +270,40 @@
   "landy22granatt/Kumpulan-Script-Termux",
   "seo-skills/seo-audit-skill",
   "betterlytics/betterlytics",
+  "cjsimon2/Divi5-ToolKit",
+  "yaojingang/GEORank",
+  "onvoyage-ai/gtm-engineer-skills",
+  "ai-search-guru/getcito-worlds-first-open-source-aio-aeo-or-geo-tool",
+  "DavidHuji/Awesome-GEO",
+  "mverab/eGEOagents",
+  "StJudeWasHere/seonaut",
+  "seo-skills/seo-audit-skill",
+  "viasite/site-audit-seo",
+  "kemalai/FreeCrawl-SEO-Tool",
+  "IamRamgarhia/All-In-One-Free-SEO-Tool",
+  "jdevalk/seo-graph",
+  "codiume/orbit",
+  "MauCariApa-com/maucariapacom-church-starter",
+  "SlashGordon/astro-seo-enforcer",
+  "RelayStack/astro-seo-toolkit",
+  "thedaviddias/llms-txt-hub",
+  "AnswerDotAI/llms-txt",
+  "SecretiveShell/Awesome-llms-txt",
+  "firecrawl/llmstxt-generator",
+  "krish-adi/llmstxt-site",
+  "RehanSaeed/Schema.NET",
+  "karust/openserp",
+  "seyka-ai/yandex-tools-mcp",
+  "bojieyang/indexnow-action",
+  "everyinfra/seo-skills",
+  "crawlwp/crawlwp-lite",
+  "Abdinajibahmed/MadCam---Termux-Hack-Front-camera-by-Sending-link",
+  "SiD3W4y/zelda-alttp-re",
+  "Taoviqinvicible/Tools-termux",
+  "vkamenar/implib-sdk",
+  "landy22granatt/Kumpulan-Script-Termux",
+  "seo-skills/seo-audit-skill",
+  "betterlytics/betterlytics",
   "cjsimon2/Divi5-ToolKit"
  ],
  "npm": [
@@ -287,7 +321,8 @@
   "structured-data-testing-tool",
   "react-structured-data",
   "@svar-ui/react-editor",
-  "@24hr/react-structured-data"
+  "@24hr/react-structured-data",
+  "nextjs-seo-audit-mcp"
  ],
  "hn": [
   "36587546",
@@ -308,7 +343,9 @@
   4957669,
   4963769,
   4963622,
-  4989813
+  4989813,
+  4977445,
+  4990181
  ],
  "rss": [
   "http://webmaster.yandex.ru/blog/webmater-update",
@@ -345,6 +382,9 @@
   "https://habr.com/ru/articles/1103326/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=1103326",
   "https://habr.com/ru/articles/1104954/?utm_campaign=1104954&amp;utm_source=habrahabr&amp;utm_medium=rss",
   "https://habr.com/ru/articles/1104870/?utm_campaign=1104870&amp;utm_source=habrahabr&amp;utm_medium=rss",
-  "https://habr.com/ru/companies/ruvds/articles/1100012/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=1100012"
+  "https://habr.com/ru/companies/ruvds/articles/1100012/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=1100012",
+  "https://habr.com/ru/articles/1105074/?utm_campaign=1105074&amp;utm_source=habrahabr&amp;utm_medium=rss",
+  "https://habr.com/ru/articles/1104948/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=1104948",
+  "https://habr.com/ru/articles/1103460/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=1103460"
  ]
 }
