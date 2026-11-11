@@ -1,18 +1,7 @@
-# Еженедельный свод разведки — 2026-11-10
+# Еженедельный свод разведки — 2026-11-11
 
-Файлов за 7 дней: 5 | находок всего: 10
-Дедуп-реестр: devto: 7, hn: 12, npm: 16, repos: 339, rss: 42
-
-## recon_2026-11-08.md
-# Разведка 2026-11-08
-
-## Прогон 07:38 UTC
-
-### SEO-хаб
-
-- [Правда ли нейросети выдумывают ссылки и почему в их ответах остаются удалённые статьи](https://habr.com/ru/articles/1104870/?utm_campaign=1104870&amp;utm_source=habrahabr&amp;utm_medium=rss) · Habr · SEO-хаб
-
-
+Файлов за 7 дней: 6 | находок всего: 12
+Дедуп-реестр: devto: 7, hn: 12, npm: 16, repos: 373, rss: 49
 
 ## recon_2026-11-09.md
 # Разведка 2026-11-09
@@ -43,5 +32,17 @@
 
 - [UGC в Google: как подготовить форум к Fresh Data Program и сохранить контроль над индексацией](https://habr.com/ru/articles/1105668/?utm_campaign=1105668&amp;utm_source=habrahabr&amp;utm_medium=rss) · Habr · SEO-хаб
 - [robots.txt не запрещает обучение ИИ: каких роботов закрывать, чтобы сайт остался в ответах нейросетей](https://habr.com/ru/articles/1105600/?utm_campaign=1105600&amp;utm_source=habrahabr&amp;utm_medium=rss) · Habr · SEO-хаб
+
+
+
+## recon_2026-11-11.md
+# Разведка 2026-11-11
+
+## Прогон 07:49 UTC
+
+### SEO-хаб
+
+- [Как сайту получить клик из ИИ-обзоров Google, если описание страницы пишет нейросеть](https://habr.com/ru/articles/1106204/?utm_campaign=1106204&amp;utm_source=habrahabr&amp;utm_medium=rss) · Habr · SEO-хаб
+- [Как посчитать трафик из нейросетей, который уходит в прямые заходы Метрики и GA4](https://habr.com/ru/articles/1106076/?utm_campaign=1106076&amp;utm_source=habrahabr&amp;utm_medium=rss) · Habr · SEO-хаб
 
 
