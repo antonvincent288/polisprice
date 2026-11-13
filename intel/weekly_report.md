@@ -1,19 +1,7 @@
-# Еженедельный свод разведки — 2026-11-12
+# Еженедельный свод разведки — 2026-11-13
 
-Файлов за 7 дней: 7 | находок всего: 13
-Дедуп-реестр: devto: 12, hn: 12, npm: 16, repos: 407, rss: 52
-
-## recon_2026-11-10.md
-# Разведка 2026-11-10
-
-## Прогон 07:47 UTC
-
-### SEO-хаб
-
-- [UGC в Google: как подготовить форум к Fresh Data Program и сохранить контроль над индексацией](https://habr.com/ru/articles/1105668/?utm_campaign=1105668&amp;utm_source=habrahabr&amp;utm_medium=rss) · Habr · SEO-хаб
-- [robots.txt не запрещает обучение ИИ: каких роботов закрывать, чтобы сайт остался в ответах нейросетей](https://habr.com/ru/articles/1105600/?utm_campaign=1105600&amp;utm_source=habrahabr&amp;utm_medium=rss) · Habr · SEO-хаб
-
-
+Файлов за 7 дней: 8 | находок всего: 15
+Дедуп-реестр: devto: 14, hn: 12, npm: 16, repos: 436, rss: 59
 
 ## recon_2026-11-11.md
 # Разведка 2026-11-11
@@ -47,3 +35,24 @@
 ### SEO-хаб
 
 - [Рейтинг 
+
+## recon_2026-11-13.md
+# Разведка 2026-11-13
+
+## Прогон 07:51 UTC
+
+### GitHub
+
+- ★26 [iannuttall/seo-graph](https://github.com/iannuttall/seo-graph) — Agent-ready SEO for JavaScript — schema.org JSON-LD graph builders, deterministic agent markdown with content negotiatio · GitHub
+
+### dev.to
+
+- 1♥ [One Site’s Google AI Opt-Out Test Estimated 23% of Search Clicks Came From AI Features](https://dev.to/alifar/one-sites-google-ai-opt-out-test-estimated-23-of-search-clicks-came-from-ai-features-2c21) · dev.to
+- 1♥ [AI Search Traffic Is Still Small. Why Measurement Must Shift Toward Transactions](https://dev.to/alifar/ai-search-traffic-is-still-small-why-measurement-must-shift-toward-transactions-26a1) · dev.to
+
+### SEO-хаб
+
+- [Где публиковать статьи, чтобы нейросети вас цитировали: Алисы, ChatGPT, Perplexity и DeepSeek](https://habr.com/ru/articles/1107326/?utm_campaign=1107326&amp;utm_source=habrahabr&amp;utm_medium=rss) · Habr · SEO-хаб
+- [Почему ChatGPT вчера ссылался на сайт бренда, а сегодня нет, и как считать видимость в нейросетях](https://habr.com/ru/articles/1107102/?utm_campaign=1107102&amp;utm_source=habrahabr&amp;utm_medium=rss) · Habr · SEO-хаб
+
+
