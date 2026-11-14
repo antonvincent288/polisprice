@@ -1,19 +1,7 @@
-# Еженедельный свод разведки — 2026-11-13
+# Еженедельный свод разведки — 2026-11-14
 
-Файлов за 7 дней: 8 | находок всего: 15
-Дедуп-реестр: devto: 14, hn: 12, npm: 16, repos: 436, rss: 59
-
-## recon_2026-11-11.md
-# Разведка 2026-11-11
-
-## Прогон 07:49 UTC
-
-### SEO-хаб
-
-- [Как сайту получить клик из ИИ-обзоров Google, если описание страницы пишет нейросеть](https://habr.com/ru/articles/1106204/?utm_campaign=1106204&amp;utm_source=habrahabr&amp;utm_medium=rss) · Habr · SEO-хаб
-- [Как посчитать трафик из нейросетей, который уходит в прямые заходы Метрики и GA4](https://habr.com/ru/articles/1106076/?utm_campaign=1106076&amp;utm_source=habrahabr&amp;utm_medium=rss) · Habr · SEO-хаб
-
-
+Файлов за 7 дней: 9 | находок всего: 16
+Дедуп-реестр: devto: 14, hn: 12, npm: 17, repos: 470, rss: 60
 
 ## recon_2026-11-12.md
 # Разведка 2026-11-12
@@ -54,5 +42,20 @@
 
 - [Где публиковать статьи, чтобы нейросети вас цитировали: Алисы, ChatGPT, Perplexity и DeepSeek](https://habr.com/ru/articles/1107326/?utm_campaign=1107326&amp;utm_source=habrahabr&amp;utm_medium=rss) · Habr · SEO-хаб
 - [Почему ChatGPT вчера ссылался на сайт бренда, а сегодня нет, и как считать видимость в нейросетях](https://habr.com/ru/articles/1107102/?utm_campaign=1107102&amp;utm_source=habrahabr&amp;utm_medium=rss) · Habr · SEO-хаб
+
+
+
+## recon_2026-11-14.md
+# Разведка 2026-11-14
+
+## Прогон 07:39 UTC
+
+### прочее
+
+- npm: [n8n-nodes-hillcountrybots-seo-audit](https://www.npmjs.com/package/n8n-nodes-hillcountrybots-seo-audit) — n8n community node for the Hill Country Bots SEO Audit Tool on Apify. Runs a website SEO audit with your own Apify token
+
+### SEO-хаб
+
+- [Как я каждый месяц проверяю, называет ли меня ChatGPT, и что из советов по GEO на деле не работает](https://habr.com/ru/articles/1107478/?utm_campaign=1107478&amp;utm_source=habrahabr&amp;utm_medium=rss) · Habr · SEO-хаб
 
 

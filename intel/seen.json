@@ -435,6 +435,40 @@
   "crawlwp/crawlwp-lite",
   "seo-skills/seo-audit-skill",
   "betterlytics/betterlytics",
+  "cjsimon2/Divi5-ToolKit",
+  "izak-fisher/generative-engine-optimization-tools",
+  "yaojingang/GEORank",
+  "onvoyage-ai/gtm-engineer-skills",
+  "ai-search-guru/getcito-worlds-first-open-source-aio-aeo-or-geo-tool",
+  "DavidHuji/Awesome-GEO",
+  "StJudeWasHere/seonaut",
+  "seo-skills/seo-audit-skill",
+  "viasite/site-audit-seo",
+  "kemalai/FreeCrawl-SEO-Tool",
+  "IamRamgarhia/All-In-One-Free-SEO-Tool",
+  "codiume/orbit",
+  "MauCariApa-com/maucariapacom-church-starter",
+  "RelayStack/astro-seo-toolkit",
+  "SlashGordon/astro-seo-enforcer",
+  "iannuttall/seo-graph",
+  "thedaviddias/llms-txt-hub",
+  "AnswerDotAI/llms-txt",
+  "SecretiveShell/Awesome-llms-txt",
+  "firecrawl/llmstxt-generator",
+  "krish-adi/llmstxt-site",
+  "RehanSaeed/Schema.NET",
+  "karust/openserp",
+  "seyka-ai/yandex-tools-mcp",
+  "bojieyang/indexnow-action",
+  "everyinfra/seo-skills",
+  "crawlwp/crawlwp-lite",
+  "Abdinajibahmed/MadCam---Termux-Hack-Front-camera-by-Sending-link",
+  "SiD3W4y/zelda-alttp-re",
+  "Taoviqinvicible/Tools-termux",
+  "vkamenar/implib-sdk",
+  "landy22granatt/Kumpulan-Script-Termux",
+  "seo-skills/seo-audit-skill",
+  "betterlytics/betterlytics",
   "cjsimon2/Divi5-ToolKit"
  ],
  "npm": [
@@ -453,7 +487,8 @@
   "react-structured-data",
   "@svar-ui/react-editor",
   "@24hr/react-structured-data",
-  "nextjs-seo-audit-mcp"
+  "nextjs-seo-audit-mcp",
+  "n8n-nodes-hillcountrybots-seo-audit"
  ],
  "hn": [
   "36587546",
@@ -544,6 +579,7 @@
   "https://habr.com/ru/articles/1107008/?utm_campaign=1107008&amp;utm_source=habrahabr&amp;utm_medium=rss",
   "https://habr.com/ru/articles/1106348/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=1106348",
   "https://habr.com/ru/companies/ruvds/articles/1106994/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=1106994",
-  "https://habr.com/ru/articles/1106312/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=1106312"
+  "https://habr.com/ru/articles/1106312/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=1106312",
+  "https://habr.com/ru/articles/1107478/?utm_campaign=1107478&amp;utm_source=habrahabr&amp;utm_medium=rss"
  ]
 }
