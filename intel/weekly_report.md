@@ -1,28 +1,7 @@
-# Еженедельный свод разведки — 2026-11-14
+# Еженедельный свод разведки — 2026-11-15
 
-Файлов за 7 дней: 9 | находок всего: 16
-Дедуп-реестр: devto: 14, hn: 12, npm: 17, repos: 470, rss: 60
-
-## recon_2026-11-12.md
-# Разведка 2026-11-12
-
-## Прогон 07:51 UTC
-
-### GitHub
-
-- ★120 [izak-fisher/generative-engine-optimization-tools](https://github.com/izak-fisher/generative-engine-optimization-tools) — Awesome list of generative engine optimization tools · GitHub
-
-### dev.to
-
-- 1♥ [The New York Times v. Brave Puts AI Search Indexing Under Scrutiny](https://dev.to/alifar/the-new-york-times-v-brave-puts-ai-search-indexing-under-scrutiny-24e3) · dev.to
-- 0♥ [Programmatic SEO Kill Rules: How to Govern Pages Before They Scale](https://dev.to/alifar/programmatic-seo-kill-rules-how-to-govern-pages-before-they-scale-2gpf) · dev.to
-- 2♥ [Why Website Migrations Can Hurt SEO Even When URLs Stay the Same](https://dev.to/alifar/why-website-migrations-can-hurt-seo-even-when-urls-stay-the-same-l12) · dev.to
-- 0♥ [Google Modern Web Guidance 1.0 Brings Cross-Browser Standards to AI Coding Agents](https://dev.to/alifar/google-modern-web-guidance-10-brings-cross-browser-standards-to-ai-coding-agents-2720) · dev.to
-- 2♥ [AI Visibility Is Real, but It Is Not a Standalone Performance Metric](https://dev.to/alifar/ai-visibility-is-real-but-it-is-not-a-standalone-performance-metric-5ego) · dev.to
-
-### SEO-хаб
-
-- [Рейтинг 
+Файлов за 7 дней: 10 | находок всего: 17
+Дедуп-реестр: devto: 14, hn: 12, npm: 17, repos: 504, rss: 62
 
 ## recon_2026-11-13.md
 # Разведка 2026-11-13
@@ -57,5 +36,16 @@
 ### SEO-хаб
 
 - [Как я каждый месяц проверяю, называет ли меня ChatGPT, и что из советов по GEO на деле не работает](https://habr.com/ru/articles/1107478/?utm_campaign=1107478&amp;utm_source=habrahabr&amp;utm_medium=rss) · Habr · SEO-хаб
+
+
+
+## recon_2026-11-15.md
+# Разведка 2026-11-15
+
+## Прогон 07:42 UTC
+
+### SEO-хаб
+
+- [Индекс поисковика Brave — отдельный вход в ответы нейросетей: как за несколько минут проверить, есть ли в нём ваш сайт](https://habr.com/ru/articles/1107834/?utm_campaign=1107834&amp;utm_source=habrahabr&amp;utm_medium=rss) · Habr · SEO-хаб
 
 
