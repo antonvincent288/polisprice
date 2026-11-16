@@ -1,28 +1,7 @@
-# Еженедельный свод разведки — 2026-11-15
+# Еженедельный свод разведки — 2026-11-16
 
-Файлов за 7 дней: 10 | находок всего: 17
-Дедуп-реестр: devto: 14, hn: 12, npm: 17, repos: 504, rss: 62
-
-## recon_2026-11-13.md
-# Разведка 2026-11-13
-
-## Прогон 07:51 UTC
-
-### GitHub
-
-- ★26 [iannuttall/seo-graph](https://github.com/iannuttall/seo-graph) — Agent-ready SEO for JavaScript — schema.org JSON-LD graph builders, deterministic agent markdown with content negotiatio · GitHub
-
-### dev.to
-
-- 1♥ [One Site’s Google AI Opt-Out Test Estimated 23% of Search Clicks Came From AI Features](https://dev.to/alifar/one-sites-google-ai-opt-out-test-estimated-23-of-search-clicks-came-from-ai-features-2c21) · dev.to
-- 1♥ [AI Search Traffic Is Still Small. Why Measurement Must Shift Toward Transactions](https://dev.to/alifar/ai-search-traffic-is-still-small-why-measurement-must-shift-toward-transactions-26a1) · dev.to
-
-### SEO-хаб
-
-- [Где публиковать статьи, чтобы нейросети вас цитировали: Алисы, ChatGPT, Perplexity и DeepSeek](https://habr.com/ru/articles/1107326/?utm_campaign=1107326&amp;utm_source=habrahabr&amp;utm_medium=rss) · Habr · SEO-хаб
-- [Почему ChatGPT вчера ссылался на сайт бренда, а сегодня нет, и как считать видимость в нейросетях](https://habr.com/ru/articles/1107102/?utm_campaign=1107102&amp;utm_source=habrahabr&amp;utm_medium=rss) · Habr · SEO-хаб
-
-
+Файлов за 7 дней: 11 | находок всего: 17
+Дедуп-реестр: devto: 15, hn: 12, npm: 17, repos: 538, rss: 65
 
 ## recon_2026-11-14.md
 # Разведка 2026-11-14
@@ -47,5 +26,20 @@
 ### SEO-хаб
 
 - [Индекс поисковика Brave — отдельный вход в ответы нейросетей: как за несколько минут проверить, есть ли в нём ваш сайт](https://habr.com/ru/articles/1107834/?utm_campaign=1107834&amp;utm_source=habrahabr&amp;utm_medium=rss) · Habr · SEO-хаб
+
+
+
+## recon_2026-11-16.md
+# Разведка 2026-11-16
+
+## Прогон 09:20 UTC
+
+### GitHub
+
+- ★15 [caret-collective/astro-snapshot](https://github.com/caret-collective/astro-snapshot) — An Astro integration for generating screenshots of your pages automatically at build time. Perfect for creating social i · GitHub
+
+### dev.to
+
+- 7♥ [ChatGPT Stopped Recommending This App Overnight. The Culprit Was a Domain Move (and One Regex)](https://dev.to/arshtechpro/chatgpt-stopped-recommending-this-app-overnight-the-culprit-was-a-domain-move-and-one-regex-5c3i) · dev.to
 
 
