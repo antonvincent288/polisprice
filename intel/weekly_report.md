@@ -1,22 +1,7 @@
-# Еженедельный свод разведки — 2026-11-16
+# Еженедельный свод разведки — 2026-11-17
 
-Файлов за 7 дней: 11 | находок всего: 17
-Дедуп-реестр: devto: 15, hn: 12, npm: 17, repos: 538, rss: 65
-
-## recon_2026-11-14.md
-# Разведка 2026-11-14
-
-## Прогон 07:39 UTC
-
-### прочее
-
-- npm: [n8n-nodes-hillcountrybots-seo-audit](https://www.npmjs.com/package/n8n-nodes-hillcountrybots-seo-audit) — n8n community node for the Hill Country Bots SEO Audit Tool on Apify. Runs a website SEO audit with your own Apify token
-
-### SEO-хаб
-
-- [Как я каждый месяц проверяю, называет ли меня ChatGPT, и что из советов по GEO на деле не работает](https://habr.com/ru/articles/1107478/?utm_campaign=1107478&amp;utm_source=habrahabr&amp;utm_medium=rss) · Habr · SEO-хаб
-
-
+Файлов за 7 дней: 12 | находок всего: 19
+Дедуп-реестр: devto: 17, hn: 12, npm: 17, repos: 572, rss: 70
 
 ## recon_2026-11-15.md
 # Разведка 2026-11-15
@@ -41,5 +26,22 @@
 ### dev.to
 
 - 7♥ [ChatGPT Stopped Recommending This App Overnight. The Culprit Was a Domain Move (and One Regex)](https://dev.to/arshtechpro/chatgpt-stopped-recommending-this-app-overnight-the-culprit-was-a-domain-move-and-one-regex-5c3i) · dev.to
+
+
+
+## recon_2026-11-17.md
+# Разведка 2026-11-17
+
+## Прогон 07:53 UTC
+
+### dev.to
+
+- 1♥ [The Best Search Console MCP Lets the Database Do the Math, Not the Model](https://dev.to/jbobbink/the-best-search-console-mcp-lets-the-database-do-the-math-not-the-model-160h) · dev.to
+- 1♥ [I pointed Claude Code at 338 launch directories. It submitted 285 of them.](https://dev.to/ashish_sikka/i-pointed-claude-code-at-338-launch-directories-it-submitted-285-of-them-27h5) · dev.to
+
+### Best
+
+- [У нас есть Claude дома — заметка о том, как я делал быстрый и дешёвый локальный LLM](https://habr.com/ru/companies/ruvds/articles/1106678/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=1106678) · Habr · Best
+- [Монтируем LLM как жесткий диск. Бесконечная файловая система на Python + FUSE](https://habr.com/ru/companies/selectel/articles/1107570/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=1107570) · Habr · Best
 
 
