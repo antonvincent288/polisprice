@@ -1,22 +1,7 @@
-# Еженедельный свод разведки — 2026-11-18
+# Еженедельный свод разведки — 2026-11-19
 
-Файлов за 7 дней: 13 | находок всего: 19
-Дедуп-реестр: devto: 19, hn: 12, npm: 17, repos: 606, rss: 73
-
-## recon_2026-11-16.md
-# Разведка 2026-11-16
-
-## Прогон 09:20 UTC
-
-### GitHub
-
-- ★15 [caret-collective/astro-snapshot](https://github.com/caret-collective/astro-snapshot) — An Astro integration for generating screenshots of your pages automatically at build time. Perfect for creating social i · GitHub
-
-### dev.to
-
-- 7♥ [ChatGPT Stopped Recommending This App Overnight. The Culprit Was a Domain Move (and One Regex)](https://dev.to/arshtechpro/chatgpt-stopped-recommending-this-app-overnight-the-culprit-was-a-domain-move-and-one-regex-5c3i) · dev.to
-
-
+Файлов за 7 дней: 14 | находок всего: 19
+Дедуп-реестр: devto: 20, hn: 12, npm: 17, repos: 606, rss: 74
 
 ## recon_2026-11-17.md
 # Разведка 2026-11-17
@@ -44,5 +29,16 @@
 
 - 2♥ [HTML base and SEO: Audit the URL Behind Every Relative Link](https://dev.to/urielbitton/html-base-and-seo-audit-the-url-behind-every-relative-link-259j) · dev.to
 - 2♥ [HTML Character Encoding and SEO: Repair the Text Before Rewriting the Answer](https://dev.to/urielbitton/html-character-encoding-and-seo-repair-the-text-before-rewriting-the-answer-31c2) · dev.to
+
+
+
+## recon_2026-11-19.md
+# Разведка 2026-11-19
+
+## Прогон 07:53 UTC
+
+### dev.to
+
+- 1♥ [Passive Website Health Checks with curl: Security Headers, TTFB, and Indexing Signals](https://dev.to/harryagustiana/passive-website-health-checks-with-curl-security-headers-ttfb-and-indexing-signals-795) · dev.to
 
 
