@@ -1,24 +1,7 @@
-# Еженедельный свод разведки — 2026-11-19
+# Еженедельный свод разведки — 2026-11-20
 
-Файлов за 7 дней: 14 | находок всего: 19
-Дедуп-реестр: devto: 20, hn: 12, npm: 17, repos: 606, rss: 74
-
-## recon_2026-11-17.md
-# Разведка 2026-11-17
-
-## Прогон 07:53 UTC
-
-### dev.to
-
-- 1♥ [The Best Search Console MCP Lets the Database Do the Math, Not the Model](https://dev.to/jbobbink/the-best-search-console-mcp-lets-the-database-do-the-math-not-the-model-160h) · dev.to
-- 1♥ [I pointed Claude Code at 338 launch directories. It submitted 285 of them.](https://dev.to/ashish_sikka/i-pointed-claude-code-at-338-launch-directories-it-submitted-285-of-them-27h5) · dev.to
-
-### Best
-
-- [У нас есть Claude дома — заметка о том, как я делал быстрый и дешёвый локальный LLM](https://habr.com/ru/companies/ruvds/articles/1106678/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=1106678) · Habr · Best
-- [Монтируем LLM как жесткий диск. Бесконечная файловая система на Python + FUSE](https://habr.com/ru/companies/selectel/articles/1107570/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=1107570) · Habr · Best
-
-
+Файлов за 7 дней: 15 | находок всего: 19
+Дедуп-реестр: devto: 23, hn: 12, npm: 17, repos: 640, rss: 76
 
 ## recon_2026-11-18.md
 # Разведка 2026-11-18
@@ -40,5 +23,18 @@
 ### dev.to
 
 - 1♥ [Passive Website Health Checks with curl: Security Headers, TTFB, and Indexing Signals](https://dev.to/harryagustiana/passive-website-health-checks-with-curl-security-headers-ttfb-and-indexing-signals-795) · dev.to
+
+
+
+## recon_2026-11-20.md
+# Разведка 2026-11-20
+
+## Прогон 07:51 UTC
+
+### dev.to
+
+- 2♥ [rel="sponsored" in SaaS Comparisons: Audit the Link Your Template Emits](https://dev.to/urielbitton/relsponsored-in-saas-comparisons-audit-the-link-your-template-emits-1ccg) · dev.to
+- 1♥ [JavaScript noindex Removal: Fix the Initial HTML Before Trusting the DOM](https://dev.to/urielbitton/javascript-noindex-removal-fix-the-initial-html-before-trusting-the-dom-fk3) · dev.to
+- 1♥ [A/B Testing and SEO: Audit the Temporary Route Before Launch](https://dev.to/urielbitton/ab-testing-and-seo-audit-the-temporary-route-before-launch-kk2) · dev.to
 
 
