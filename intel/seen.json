@@ -639,6 +639,40 @@
   "landy22granatt/Kumpulan-Script-Termux",
   "seo-skills/seo-audit-skill",
   "betterlytics/betterlytics",
+  "cjsimon2/Divi5-ToolKit",
+  "izak-fisher/generative-engine-optimization-tools",
+  "yaojingang/GEORank",
+  "onvoyage-ai/gtm-engineer-skills",
+  "ai-search-guru/getcito-worlds-first-open-source-aio-aeo-or-geo-tool",
+  "DavidHuji/Awesome-GEO",
+  "StJudeWasHere/seonaut",
+  "seo-skills/seo-audit-skill",
+  "viasite/site-audit-seo",
+  "kemalai/FreeCrawl-SEO-Tool",
+  "IamRamgarhia/All-In-One-Free-SEO-Tool",
+  "alipiry/astro-starter",
+  "codiume/orbit",
+  "RelayStack/astro-seo-toolkit",
+  "SlashGordon/astro-seo-enforcer",
+  "iannuttall/seo-graph",
+  "thedaviddias/llms-txt-hub",
+  "AnswerDotAI/llms-txt",
+  "SecretiveShell/Awesome-llms-txt",
+  "firecrawl/llmstxt-generator",
+  "krish-adi/llmstxt-site",
+  "RehanSaeed/Schema.NET",
+  "karust/openserp",
+  "seyka-ai/yandex-tools-mcp",
+  "bojieyang/indexnow-action",
+  "everyinfra/seo-skills",
+  "crawlwp/crawlwp-lite",
+  "Abdinajibahmed/MadCam---Termux-Hack-Front-camera-by-Sending-link",
+  "SiD3W4y/zelda-alttp-re",
+  "Taoviqinvicible/Tools-termux",
+  "vkamenar/implib-sdk",
+  "landy22granatt/Kumpulan-Script-Termux",
+  "seo-skills/seo-audit-skill",
+  "betterlytics/betterlytics",
   "cjsimon2/Divi5-ToolKit"
  ],
  "npm": [
@@ -697,7 +731,8 @@
   5026659,
   5038586,
   5042099,
-  5049013
+  5049013,
+  5058135
  ],
  "rss": [
   "http://webmaster.yandex.ru/blog/webmater-update",
@@ -775,6 +810,9 @@
   "https://habr.com/ru/companies/timeweb/articles/1101340/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=1101340",
   "https://habr.com/ru/articles/1107866/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=1107866",
   "https://habr.com/ru/companies/ruvds/articles/1109324/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=1109324",
-  "https://habr.com/ru/articles/1108048/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=1108048"
+  "https://habr.com/ru/articles/1108048/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=1108048",
+  "https://habr.com/ru/articles/1110566/?utm_campaign=1110566&amp;utm_source=habrahabr&amp;utm_medium=rss",
+  "https://habr.com/ru/articles/1110456/?utm_campaign=1110456&amp;utm_source=habrahabr&amp;utm_medium=rss",
+  "https://habr.com/ru/articles/1109634/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=1109634"
  ]
 }
