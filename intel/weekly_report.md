@@ -1,18 +1,7 @@
-# Еженедельный свод разведки — 2026-11-21
+# Еженедельный свод разведки — 2026-11-22
 
-Файлов за 7 дней: 16 | находок всего: 19
-Дедуп-реестр: devto: 24, hn: 12, npm: 17, repos: 674, rss: 79
-
-## recon_2026-11-19.md
-# Разведка 2026-11-19
-
-## Прогон 07:53 UTC
-
-### dev.to
-
-- 1♥ [Passive Website Health Checks with curl: Security Headers, TTFB, and Indexing Signals](https://dev.to/harryagustiana/passive-website-health-checks-with-curl-security-headers-ttfb-and-indexing-signals-795) · dev.to
-
-
+Файлов за 7 дней: 17 | находок всего: 20
+Дедуп-реестр: devto: 24, hn: 12, npm: 18, repos: 708, rss: 81
 
 ## recon_2026-11-20.md
 # Разведка 2026-11-20
@@ -39,5 +28,20 @@
 ### dev.to
 
 - 2♥ [Meta Refresh and SEO: Read the Delay Before Calling It a Permanent Move](https://dev.to/urielbitton/meta-refresh-and-seo-read-the-delay-before-calling-it-a-permanent-move-617) · dev.to
+
+
+
+## recon_2026-11-22.md
+# Разведка 2026-11-22
+
+## Прогон 07:46 UTC
+
+### прочее
+
+- npm: [@kubohiroya/turbowarp-structured-data](https://www.npmjs.com/package/@kubohiroya/turbowarp-structured-data) — Named structured data with JSON/YAML codecs and deterministic path operations for TurboWarp.
+
+### SEO-хаб
+
+- [Добавил на сайт sameAs и llms.txt, потом открыл журнал nginx и посчитал, кто из ИИ-ботов пришёл на самом деле](https://habr.com/ru/articles/1107206/?utm_campaign=1107206&amp;utm_source=habrahabr&amp;utm_medium=rss) · Habr · SEO-хаб
 
 
