@@ -1,22 +1,7 @@
-# Еженедельный свод разведки — 2026-11-24
+# Еженедельный свод разведки — 2026-11-25
 
-Файлов за 7 дней: 19 | находок всего: 22
-Дедуп-реестр: devto: 29, hn: 12, npm: 18, repos: 776, rss: 90
-
-## recon_2026-11-22.md
-# Разведка 2026-11-22
-
-## Прогон 07:46 UTC
-
-### прочее
-
-- npm: [@kubohiroya/turbowarp-structured-data](https://www.npmjs.com/package/@kubohiroya/turbowarp-structured-data) — Named structured data with JSON/YAML codecs and deterministic path operations for TurboWarp.
-
-### SEO-хаб
-
-- [Добавил на сайт sameAs и llms.txt, потом открыл журнал nginx и посчитал, кто из ИИ-ботов пришёл на самом деле](https://habr.com/ru/articles/1107206/?utm_campaign=1107206&amp;utm_source=habrahabr&amp;utm_medium=rss) · Habr · SEO-хаб
-
-
+Файлов за 7 дней: 20 | находок всего: 22
+Дедуп-реестр: devto: 32, hn: 12, npm: 19, repos: 810, rss: 93
 
 ## recon_2026-11-23.md
 # Разведка 2026-11-23
@@ -48,5 +33,22 @@
 ### Best
 
 - [Куда я потратил грант Яндекса: пишем с нуля C++/CUDA‑движок для LLM, который обгоняет llama.cpp на старой RTX 2080 Ti](https://habr.com/ru/articles/1110758/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=1110758) · Habr · Best
+
+
+
+## recon_2026-11-25.md
+# Разведка 2026-11-25
+
+## Прогон 07:59 UTC
+
+### прочее
+
+- npm: [@kristijorgji/seo-audit](https://www.npmjs.com/package/@kristijorgji/seo-audit) — Sitemap, robots.txt and rendered-page SEO audit CLI with HTML report (kj-seo)
+
+### dev.to
+
+- 2♥ [Bot Traffic in Analytics: 1,275 'Visitors' in 16 Hours Moved in Step With Meta's AI Crawler (Nov 2026)](https://dev.to/sarathkavuru/bot-traffic-in-analytics-1275-visitors-in-16-hours-moved-in-step-with-metas-ai-crawler-nov-h85) · dev.to
+- 1♥ [Building a 160-Page Regional-Language Exam Prep Site with Astro 5, Tailwind v4, and Firebase Hosting](https://dev.to/pooja_81f6602822dfcd89806/building-a-160-page-regional-language-exam-prep-site-with-astro-5-tailwind-v4-and-firebase-hosting-2m3n) · dev.to
+- 2♥ [I built a free technical SEO and AI-crawler checker with Rails 8, SQLite and Playwright](https://dev.to/woochaq/i-built-a-free-technical-seo-and-ai-crawler-checker-with-rails-8-sqlite-and-playwright-1k2e) · dev.to
 
 
