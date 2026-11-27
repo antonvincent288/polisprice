@@ -1,27 +1,7 @@
-# Еженедельный свод разведки — 2026-11-26
+# Еженедельный свод разведки — 2026-11-27
 
-Файлов за 7 дней: 21 | находок всего: 23
-Дедуп-реестр: devto: 33, hn: 12, npm: 19, repos: 844, rss: 97
-
-## recon_2026-11-24.md
-# Разведка 2026-11-24
-
-## Прогон 07:57 UTC
-
-### dev.to
-
-- 1♥ [Why Rank-Tracker Drops During a Google Core Update Need Verification](https://dev.to/alifar/why-rank-tracker-drops-during-a-google-core-update-need-verification-1jfh) · dev.to
-- 0♥ [I audited 286 developer portfolios: 1 in 3 is a blank page to ChatGPT](https://dev.to/xwickz/i-audited-286-developer-portfolios-1-in-3-is-a-blank-page-to-chatgpt-3ko4) · dev.to
-
-### SEO-хаб
-
-- [Видимость бренда в нейросетях: почему для аудита Алисы AI и ChatGPT нужны обращения клиентов](https://habr.com/ru/articles/1111448/?utm_campaign=1111448&amp;utm_source=habrahabr&amp;utm_medium=rss) · Habr · SEO-хаб
-
-### Best
-
-- [Куда я потратил грант Яндекса: пишем с нуля C++/CUDA‑движок для LLM, который обгоняет llama.cpp на старой RTX 2080 Ti](https://habr.com/ru/articles/1110758/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=1110758) · Habr · Best
-
-
+Файлов за 7 дней: 22 | находок всего: 25
+Дедуп-реестр: devto: 34, hn: 12, npm: 19, repos: 870, rss: 102
 
 ## recon_2026-11-25.md
 # Разведка 2026-11-25
@@ -52,5 +32,21 @@
 ### SEO-хаб
 
 - [Как сравнить страницы из Search Console и мониторинга ответов нейросетей и почему расхождение ещё не означает ошибку](https://habr.com/ru/articles/1112404/?utm_campaign=1112404&amp;utm_source=habrahabr&amp;utm_medium=rss) · Habr · SEO-хаб
+
+
+
+## recon_2026-11-27.md
+# Разведка 2026-11-27
+
+## Прогон 16:57 UTC
+
+### dev.to
+
+- 3♥ [How to Make Images More Likely to Surface in ChatGPT and Google AI Answers](https://dev.to/alifar/how-to-make-images-more-likely-to-surface-in-chatgpt-and-google-ai-answers-10p9) · dev.to
+
+### SEO-хаб
+
+- [Переход на сертификаты Минцифры: последствия для SEO, трафика и продаж](https://habr.com/ru/articles/1113170/?utm_campaign=1113170&amp;utm_source=habrahabr&amp;utm_medium=rss) · Habr · SEO-хаб
+- [Как проверить, видят ли боты нейросетей текст сайта, и найти техническую блокировку](https://habr.com/ru/articles/1112806/?utm_campaign=1112806&amp;utm_source=habrahabr&amp;utm_medium=rss) · Habr · SEO-хаб
 
 
